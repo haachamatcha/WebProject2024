@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <style>
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: lightgreen;
+            font-family: Arial, sans-serif;
+        }
+
+        .boxes {
+            width: 1250px;
+            margin: 0px auto;          
+        }
+
+        .msgbox{
+            background-color:white;
+            border-left: 5px solid;
+            border-left-color: green;
+            margin: 20px;
+            padding: 15px;
+        }
+
+        .msgbox2{
+            background-color:white;
+            border-left: 10px solid;
+            border-left-color: yellow;
+            margin: 20px;
+            padding: 15px;
+        }
+
+        h3 {
+            margin: 0px;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: green;
+            color: black;
+            flex-direction: row;
+        }
+
+        .navbox {
+            display:block;
+            margin:0px;
+            padding:5px;
+            width: 100px;
+        }
+
+        .navdiv {
+            position:relative;
+        }
+        .drops {
+            display: none;
+            position:absolute;
+        }
+
+        .navdiv:hover{
+            background-color: lightgreen;
+        }
+
+        .navdiv:hover > .drops {
+            display: block;
+            background-color: lightgreen;
+        }
+
+        .links:hover{
+            background-color: white;
+            margin: 0px;
+            padding: 5px;
+            width: 100px;
+        }
+
+        .drops > .links {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            width: 100px;
+        }
+        
+        </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navdiv">
+            <h3 class="navbox">Drop 1</h3>
+            <div class ="drops">
+                <a href class="links">Link 1</a>
+                <a href class="links">Link 2</a>
+                <a href class="links">Link 3</a>
+            </div>
+        </div>
+
+        <div class="navdiv">
+            <h3 class="navbox">Drop 2</h3>
+            <div class ="drops">
+                <a href class="links">Link 1</a>
+                <a href class="links">Link 2</a>
+                <a href class="links">Link 3</a>
+                <a href class="links">Link 4</a>
+                <a href class="links">Link 5</a>
+            </div>
+        </div>
+
+        <div class="navdiv">
+            <h3 class="navbox">Drop 3</h3>
+            <div class ="drops">
+                <a href class="links">Link 1</a>
+                <a href class="links">Link 2</a>
+                <a href class="links">Link 3</a>
+                <a href class="links">Link 4</a>
+                <a href class="links">Link 5</a>
+                <a href class="links">Link 6</a>
+                <a href class="links">Link 7</a>
+            </div>
+        </div>
+    </nav>
+        
+    </nav>
+
+    <div class="boxes">
+        <div class="msgbox">
+            <h3>CSS BOX!</h3>
+            <p> This is the first box as shown in the example. 
+                This exercesise is meant to demonstrate learning <b><i>CSS ONLY!</i></b></p>
+        </div>
+
+        <div class="msgbox2">
+            <h3>Lorem Ipsum</h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+</body>
+</html>
