@@ -1,52 +1,262 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bulma</title>
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
-    >
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
-<body>
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </head>
+  <body>
     <nav class="navbar is-primary">
-        <div class="navbar-brand">
-            <a href="" class="navbar-item">BULMA</a>
-            <a href="" class="navbar-item">Home</a>
-            <div class="navbar-item is-dropdown is-hoverable">
-                <a href="" class="navbar-link">Docs</a>
-                <div class="navbar-dropdown">
-                    <a href="" class="navbar-item">Overview</a>
-                    <a href="" class="navbar-item">Modifiers</a>
-                    <a href="" class="navbar-item">Columns</a>
-                    <a href="" class="navbar-item">Layout</a>
-                    <a href="" class="navbar-item">Form</a>
-                    <hr class="navbar-divider">
-                    <a href="" class="navbar-item">Elements</a>
-                    <a href="" class="navbar-item is-selected">Components</a>
-                </div>
-            </div>
+      <div class="navbar-brand">
+        <a href="https://bulma.io" class="navbar-item has-text-white">BULMA</a>
+        <div class="navbar-burger has-text-white" data-target="navMenuColorprimary-example">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-
+      </div>
+      <div class="navbar-menu">
+        <a href="" class="navbar-item has-text-white">Home</a>
+        <div class="navbar-item is-dropdown is-hoverable">
+          <a href="https://bulma.io/documentation/" class="navbar-link has-text-white">Docs</a>
+          <div class="navbar-dropdown">
+            <a href="https://bulma.io/documentation/start/overview/" class="navbar-item has-text-black">Overview</a>
+            <a href="" class="navbar-item has-text-black">Modifiers</a>
+            <a href="https://bulma.io/documentation/columns/basics/" class="navbar-item has-text-black">Columns</a>
+            <a href="https://bulma.io/documentation/layout/container/" class="navbar-item has-text-black">Layout</a>
+            <a href="https://bulma.io/documentation/form/general/" class="navbar-item has-text-black">Form</a>
+            <hr class="navbar-divider" />
+            <a href="https://bulma.io/documentation/elements/box/" class="navbar-item has-text-black">Elements</a>
+            <a href="https://bulma.io/documentation/components/breadcrumb/" class="navbar-item is-selected has-text-white">
+              Components
+            </a>
+          </div>
+        </div>
         <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a href="" class="button is-light">
-                        <span class="icon mx-1">
-                            <i class="fab fa-twitter"></i>
-                        </span>
-                        Twitter
-                    </a>
-                    <a href="" class="button is-primary">
-                        <span class="icon mx-1">
-                            <i class="fas fa-download"></i>
-                        </span>
-                        Download</a>
-                </div>
+          <div class="navbar-item">
+            <div class="buttons is-grouped">
+              <a href="https://twitter.com" class="button is-light">
+                <span class="icon mx-1">
+                  <i class="fab fa-twitter"></i>
+                </span>
+                Twitter
+              </a>
+              <a href="" class="button is-primary">
+                <span class="icon mx-1">
+                  <i class="fas fa-download"></i>
+                </span>
+                Download
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </nav>
-</body>
+
+    <div class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-one-quarter">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">Component</p>
+              </header>
+              <div class="card-content">
+                *insert card content here*
+                <a href="#">@bulmaio</a>
+                <a href="#">#css</a>
+                <a href="#">#responsive</a><br />
+                <time datetime="2024-9-7">3:15 PM - 7 Sep 2024</time>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">Save</a>
+                <a href="#" class="card-footer-item">Edit</a>
+                <a href="#" class="card-footer-item">Delete</a>
+              </footer>
+            </div>
+          </div>
+
+          <div class="column is-half">
+            <article class="panel">
+                <p class="panel-tabs">
+                    <a href="" class="">
+                        <span class="icon is-left">
+                            <i class="fa fa-clipboard-list" aria-hidden="true"></i>
+                        </span>Current</a>
+                    <a href="" class="has-text-black">
+                        <span class="icon is-left">
+                            <i class="fas fa-calendar-times" aria-hidden="true"></i>
+                        </span>Completed</a>
+                    <a href="" class="has-text-black">
+                      <span class="icon is-left">
+                        <i class="fa fa-calendar-clock" aria-hidden="true"></i>
+                    </span>Upcoming</a>
+                    <a href="" class="has-text-black">
+                      <span class="icon is-left">
+                        <i class="fas fa-list" aria-hidden="true"></i>
+                    </span>All</a>
+                </p>
+
+                <div class="panel-block">
+                    <p class="control has-icons-left">
+                        <input type="text" class="input is-primary" placeholder="New Task">
+                        <span class="icon is-left">
+                            <i class="fa fa-calendar-plus" aria-hidden="true"></i>
+                        </span>
+                    </p>
+                </div>
+                <a href="" class="panel-block">
+                  <input type="checkbox" class="" checked> Learn Bulma
+                </a>
+                <a href="" class="panel-block">
+                  <input type="checkbox" class="" > Make a coffee
+                </a>
+                <a href="" class="panel-block">
+                  <input type="checkbox" class="" > Create Git Repository
+                </a>
+                <a href="" class="panel-block">
+                  <input type="checkbox" class="" > Study for Network+ Certification
+                </a>
+                <a href="" class="panel-block">
+                  <input type="checkbox" class="" > Manage HomeLab Setup
+                </a>
+            </article>
+            <article class="message is-primary">
+              <div class="message-header">
+                <p class="has-text-white">Have you made a GitHub account?</p>
+                <button class="delete" aria-label="delete"></button>
+              </div>
+              <div class="message-body">
+                <p>
+                  Visit <a href="https://github.com">GitHub</a> to create an account.
+                  This will be used to store code and projects for your portfolio.
+                  <progress class="progress is-success" value="75" max="100">75%</progress>
+                </p>
+              </div>
+            </article>
+            <form action="" class="box">
+              <div class="field">
+                <label for="" class="label">Name</label>
+                <div class="control">
+                  <input type="text" class="input" placeholder="Your Name">
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="label">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input type="text" class="input" placeholder="Your Username" value="Bulma">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </div>
+                <p class="help is-success">Username is available</p>
+              </div>
+              <div class="field">
+                <label for="" class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input type="text" class="input" placeholder="Your Email" value="xyz@email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </span>
+                  <p class="help is-danger">Email is invalid</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="label">Subject</label>
+                <div class="control">
+                  <div class="select">
+                    <select>
+                      <option>Select dropdown</option>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="label">Message</label>
+                <div class="control">
+                  <textarea class="textarea" placeholder="Your Message"></textarea>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <label for="" class="checkbox">
+                    <input type="checkbox">
+                    I agree to the <a href="">terms and conditions</a>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <label for="" class="radio">
+                    <input type="radio" name="question">
+                    Yes
+                  </label>
+                  <label for="" class="radio">
+                    <input type="radio" name="question">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-link">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button is-link is-light">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="column is-one-quarter">
+            <h2 class="title">Content</h2>
+            <h3 class="subtitle">Page Navigation</h3>
+            <aside class="menu">
+              <p class="menu-label">General</p>
+              <ul class="menu-list">
+                <li><a>Dashboard</a></li>
+                <li><a>Customers</a></li>
+              </ul>
+              <p class="menu-label">Administration</p>
+              <ul class="menu-list">
+                <li><a>Team Settings</a></li>
+                <li>
+                  <a class="is-active">Manage Your Team</a>
+                  <ul>
+                    <li><a>Members</a></li>
+                    <li><a>Plugins</a></li>
+                    <li><a>Add a member</a></li>
+                  </ul>
+                </li>
+                <li><a>Invitations</a></li>
+                <li><a>Cloud Storage Environment Settings</a></li>
+                <li><a>Authentication</a></li>
+              </ul>
+              <p class="menu-label">Transactions</p>
+              <ul class="menu-list">
+                <li><a>Payments</a></li>
+                <li><a>Transfers</a></li>
+                <li><a>Balance</a></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
