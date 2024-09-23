@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,8 +13,98 @@
         border-radius: 5px !important;
       }
     </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
   </head>
   <body>
+    <nav class="navbar is-primary">
+      <div class="navbar-brand">
+        <a href="https://bulma.io" class="navbar-item has-text-white">BULMA</a>
+        <div
+          class="navbar-burger has-text-white"
+          data-target="navMenuColorprimary-example"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="navbar-menu">
+        <a href="index.html" class="navbar-item has-text-white">Home</a>
+        <a href="vuedolist.html" class="navbar-item has-text-white">To Do List</a>
+        <div class="navbar-item is-dropdown is-hoverable">
+          <a
+            href="https://bulma.io/documentation/"
+            class="navbar-link has-text-white"
+            >Docs</a
+          >
+          <div class="navbar-dropdown">
+            <a
+              href="https://bulma.io/documentation/start/overview/"
+              class="navbar-item has-text-black"
+              >Overview</a
+            >
+            <a
+              href="https://bulma.io/documentation/start/installation/"
+              class="navbar-item has-text-black"
+              >Installation</a
+            >
+            <a
+              href="https://bulma.io/documentation/columns/basics/"
+              class="navbar-item has-text-black"
+              >Columns</a
+            >
+            <a
+              href="https://bulma.io/documentation/layout/container/"
+              class="navbar-item has-text-black"
+              >Layout</a
+            >
+            <a
+              href="https://bulma.io/documentation/form/general/"
+              class="navbar-item has-text-black"
+              >Form</a
+            >
+            <hr class="navbar-divider" />
+            <a
+              href="https://bulma.io/documentation/elements/box/"
+              class="navbar-item has-text-black"
+              >Elements</a
+            >
+            <a
+              href="https://bulma.io/documentation/components/breadcrumb/"
+              class="navbar-item is-selected has-text-white"
+            >
+              Components
+            </a>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons is-grouped">
+              <a href="https://twitter.com" class="button is-light">
+                <span class="icon mx-1">
+                  <i class="fab fa-twitter"></i>
+                </span>
+                Twitter
+              </a>
+              <a href="" class="button is-primary">
+                <span class="icon mx-1">
+                  <i class="fas fa-download"></i>
+                </span>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <div class="container">
       <div class="column">
         <h1 class="title has-text-centered">To Do List</h1>
@@ -27,21 +117,26 @@
                 placeholder="Add a new task"
                 v-model="newTodo"
               />
-              <br><br>
+              <br /><br />
               <div class="columns is-centered">
                 <div class="column">
-                  <table class="table is-bordered is-fullwidth">
+                  <table class="table is-fullwidth">
                     <thead>
-                      <tr class="is-info">
-                        <th class="has-text-centered">Task</th>
-                        <th class="has-text-centered">Action</th>
+                      <tr class="is-light">
+                        <th class="has-text-left">Task</th>
+                        <th class="has-text-right">Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr v-for="todo in todos" :key="todo" class="list-item">
-                        <td class="has-text-centered">{{ todo }}</td>
-                        <td class="has-text-centered">
-                          <button class="button is-danger" @click="removeTodo(todos.indexOf(todo))">Clear</button>
+                        <td class="has-text-left">{{ todo }}</td>
+                        <td class="has-text-right">
+                          <button
+                            class="button is-danger"
+                            @click="removeTodo(todos.indexOf(todo))"
+                          >
+                            Clear
+                          </button>
                         </td>
                       </tr>
                     </tbody>
@@ -56,35 +151,34 @@
         </div>
       </div>
     </div>
-    
 
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.js"></script>
-<script>
-  const { createApp, ref } = Vue;
-  createApp({
-    setup() {
-      const todos = ref([]);
-      const newTodo = ref("");
+    <script>
+      const { createApp, ref } = Vue;
+      createApp({
+        setup() {
+          const todos = ref([]);
+          const newTodo = ref("");
 
-      function addTodo() {
-        if (newTodo.value.trim() !== '') {
-          todos.value.push(newTodo.value);
-          newTodo.value = '';
-        }
-      }
+          function addTodo() {
+            if (newTodo.value.trim() !== "") {
+              todos.value.push(newTodo.value);
+              newTodo.value = "";
+            }
+          }
 
-      function removeTodo(index) {
-        todos.value.splice(index, 1);
-      }
+          function removeTodo(index) {
+            todos.value.splice(index, 1);
+          }
 
-      return {
-        todos,
-        newTodo,
-        addTodo,
-        removeTodo
-      };
-    },
-  }).mount("#app");
-</script>
+          return {
+            todos,
+            newTodo,
+            addTodo,
+            removeTodo,
+          };
+        },
+      }).mount("#app");
+    </script>
   </body>
 </html>
