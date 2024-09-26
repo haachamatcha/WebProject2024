@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
-    <meta charset="UTF-8" data-theme="light" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fitness</title>
 
     <style>
       .is-main {
         background-color: #6e6e6e;
+      }
+
+      .is-main-2{
+        background-color: #9e9d9d;
+      }
+
+      .is-secondary {
+        background-color: #3a7791;
       }
     </style>
 
@@ -53,10 +61,10 @@
       </div>
     </nav>
 
-    <div class="container is-light">
+    <div class="container">
       <div class="columns is-centered pt-6">
         <div class="column is-half">
-          <nav class="panel">
+          <article class="panel">
             <p class="panel-heading">Login</p>
             <div class="panel-block">
               <p class="control has-icons-left">
@@ -80,8 +88,9 @@
               </p>
             </div>
           </nav>
+          </article>
 
-          <nav class="panel">
+          <article class="panel">
             <p class="panel-heading">New to MaxFit?</p>
             <div class="panel-block has-text-centered">
               <p class="control">
@@ -89,7 +98,7 @@
                 <a href="register.html" class="button is-success">Create an account</a>
               </p>
             </div>
-          </nav>
+          </article>
         </div>
       </div>
     </div>
