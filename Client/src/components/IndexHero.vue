@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class="hero is-large is-white">
+    <section class="hero is-large is-white fade-load-in">
       <div class="hero-body">
         <div class="container">
           <h1 class="title is-1 has-text-centered has-text-black">Welcome to MaxFit</h1>
@@ -19,5 +19,16 @@
 </template>
 
 <style scoped>
+.fade-load-in{
+    animation: fadeIn 2s;
+}
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 </style>
