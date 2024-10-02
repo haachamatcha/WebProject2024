@@ -3,11 +3,11 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <nav class="navbar is-info" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand is-white">
-        <RouterLink to="/" class="navbar-item" href="index.html">
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <RouterLink to="/" class="navbar-item">
           <!--<img src="images/logo.png" alt="logo" width="112" height="28">-->
-          <p class="title is-4 has-text-black">MaxFit</p>
+          <p class="title is-4 has-text-primary" >MaxFit</p>
         </RouterLink>  
         <!--<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                   <span aria-hidden="true"></span>
@@ -26,8 +26,8 @@ import { RouterLink } from 'vue-router'
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="has-text-black" href="login.html"> Login </a>
-              <a class="has-text-black" href="register.html"> Register </a>
+              <RouterLink to="" class="has-text-white" href="login.html"> Login </RouterLink>
+              <ROuterLink to="" class="has-text-white" href="register.html"> Register </RouterLink>
             </div>
           </div>
         </div>
@@ -35,4 +35,6 @@ import { RouterLink } from 'vue-router'
     </nav>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
