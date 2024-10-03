@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class="hero is-large is-white fade-load-in">
+    <section class="hero is-halfheight is-white fade-load-in">
       <div class="hero-body">
         <div class="container">
           <h1 class="title is-1 has-text-centered has-text-black">Welcome to MaxFit</h1>
