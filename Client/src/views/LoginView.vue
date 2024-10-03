@@ -3,9 +3,9 @@ import LoginForm from '../components/LoginForm.vue'
 </script>
 
 <template>
-    <div>
+    <body class="has-background-light">
         <LoginForm />
-    </div>
+    </body>
 </template>
 
 <style scoped>

@@ -4,12 +4,12 @@
   <div class="section">
     <div class="columns is-centered">
       <div class="column is-half">
-        <form action="" class="box">
+        <form action="" class="box has-background-dark">
           <p class="title">Login</p>
           <div class="field">
             <label for="email" class="label">Email</label>
             <div class="control">
-              <input type="email" id="email" class="input" />
+              <input type="email" id="email" class="input"/>
             </div>
           </div>
           <div class="field">
