@@ -3,7 +3,7 @@ import LoginForm from '../components/LoginForm.vue'
 </script>
 
 <template>
-    <body class="has-background-light">
+    <body class="">
         <LoginForm />
     </body>
 </template>

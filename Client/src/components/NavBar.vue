@@ -27,7 +27,7 @@ import { RouterLink } from 'vue-router'
           <div class="navbar-item">
             <div class="buttons">
               <RouterLink to="/login" class="has-text-primary">Login</RouterLink>
-              <ROuterLink to="" class="has-text-primary" href="register.html"> Register </RouterLink>
+              <RouterLink to="/register" class="has-text-primary"> Register </RouterLink>
             </div>
           </div>
         </div>
