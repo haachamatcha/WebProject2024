@@ -19,7 +19,11 @@
             </div>
           </div>
           <div class="field has-text-centered">
-            <button class="button is-primary">Login</button>
+            <button class="button is-primary">
+              <span class="icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+              &ensp; Login</button>
           </div>
         </form>
 
