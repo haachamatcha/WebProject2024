@@ -8,7 +8,7 @@ const isOpen = ref(false)
 <template>
   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <RouterLink to="/" class="navbar-item">
+      <RouterLink to="/home" class="navbar-item">
         <p class="title is-4 has-text-primary">MaxFit</p>
       </RouterLink>
       <a
@@ -50,4 +50,10 @@ const isOpen = ref(false)
   </nav>
 </template>
 
-<style scoped></style>
+<style scoped>
+.router-link-active {
+  border-bottom: 2px solid #00d1b2;
+  color: #00d1b2;
+  font-weight: bold;
+}
+</style>
