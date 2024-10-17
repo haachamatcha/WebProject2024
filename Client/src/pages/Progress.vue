@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import SignUp from '@/components/SignUp.vue'
+import StatList from '../components/StatsList.vue'
 </script>
 
 <template>
     <div>
-        <SignUp />
+        <StatList />
     </div>
 </template>
 

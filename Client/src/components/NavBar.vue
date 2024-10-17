@@ -39,12 +39,12 @@ const isOpen = ref(false)
           </span>
           Home
         </RouterLink>
-        <RouterLink to="/feed" class="navbar-item">
+        <!--<RouterLink to="/feed" class="navbar-item">
           <span class="icon">
             <i class="fas fa-stream"></i>
           </span>
           Feed
-        </RouterLink>
+        </RouterLink>-->
         <RouterLink to="/activity" class="navbar-item">
           <span class="icon">
             <i class="fas fa-running"></i>
