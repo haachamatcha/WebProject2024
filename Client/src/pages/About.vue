@@ -1,15 +1,16 @@
+<script setup lang="ts">
+import IndexHero from '../components/IndexHero.vue'
+</script>
+
 <template>
-  <section class="hero">
-    <div class="hero-body has-text-centered">
-      <p class="title is-1 has-text-primary">Tell your Maximum Fitness journey!</p>
-      <p class="subtitle">Learn about how you can maximize your fitness with MaxFit</p>
-    </div>
-  </section>
+  <IndexHero />
 
   <section class="section is-large">
+    <p class="title is-2 has-text-white has-text-centered">Tell your Maximum Fitness journey!</p>
+    <p class="subtitle has-text-centered has-text-primary">Learn about how you can maximize your fitness with MaxFit</p>
     <div class="columns">
       <div class="column is-half">
-        <h2>Image Here</h2>
+          <img src="../assets/yuji.jpg" alt="yuji-nishida" />
       </div>
       <div class="column">
         <h2 class="title">Track your progress</h2>
@@ -33,7 +34,7 @@
         </p>
       </div>
       <div class="column is-half">
-        <h2>Image Here</h2>
+        <img src="../assets/wing.jpg" alt="Bboy Wing" />
       </div>
     </div>
   </section>
@@ -55,9 +56,7 @@
         </div>
         <div class="column is-one-third">
           <h2 class="title has-text-centered">
-            <span class="icon is-large">
-              <i class="fas fa-heart"></i> </span
-            >Wellness
+            <span class="icon is-large"> <i class="fas fa-heart"></i> </span>Wellness
           </h2>
           <p class="subtitle">
             Feel empowered through your fitness journey, and spread positivity with your fitness
@@ -69,7 +68,8 @@
             <span class="icon is-large">
               <i class="fas fa-chart-line"></i>
             </span>
-            Focus</h2>
+            Focus
+          </h2>
           <p class="subtitle">
             Zone in on your personal fitness goals and achieve your maximum fitness.
           </p>

@@ -8,7 +8,7 @@ const isOpen = ref(false)
 <template>
   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <RouterLink to="/home" class="navbar-item">
+      <RouterLink to="/" class="navbar-item">
         <p class="title is-4 has-text-primary">MaxFit</p>
       </RouterLink>
       <a
@@ -33,16 +33,45 @@ const isOpen = ref(false)
       @click="isOpen = !isOpen"
     >
       <div class="navbar-start">
-        <RouterLink to="/home" class="navbar-item"> Home </RouterLink>
-
-        <RouterLink to="/about" class="navbar-item"> About </RouterLink>
+        <RouterLink to="/" class="navbar-item">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+          Home
+        </RouterLink>
+        <RouterLink to="/feed" class="navbar-item">
+          <span class="icon">
+            <i class="fas fa-stream"></i>
+          </span>
+          Feed
+        </RouterLink>
+        <RouterLink to="/activity" class="navbar-item">
+          <span class="icon">
+            <i class="fas fa-running"></i>
+          </span>
+          My Activity
+        </RouterLink>
+        <RouterLink to="/progress" class="navbar-item">
+          <span class="icon">
+            <i class="fas fa-signal"></i>
+          </span>
+          My Progress
+        </RouterLink>
+        <RouterLink to="/search" class="navbar-item">
+          <span class="icon">
+            <i class="fas fa-search"></i>
+          </span>
+          Search
+        </RouterLink>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <RouterLink to="/login" class="has-text-primary">Login</RouterLink>
-            <RouterLink to="/register" class="has-text-primary"> Register </RouterLink>
+            <RouterLink to="/login" class="navbar-item has-text-primary">Login</RouterLink>
+            <RouterLink to="/register" class="navbar-item has-text-primary"> Register </RouterLink>
+            <RouterLink to="/admin" class="navbar-item has-text-primary"> Admin </RouterLink>
+            <RouterLink to="/about" class="navbar-item has-text-primary"> About </RouterLink>
           </div>
         </div>
       </div>

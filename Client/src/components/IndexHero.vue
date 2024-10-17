@@ -3,10 +3,10 @@
 </script>
 
 <template>
-    <section class="hero is-halfheight is-light fade-load-in">
+    <section class="hero is-small fade-load-in">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title is-1 has-text-centered has-text-black">Welcome to MaxFit</h1>
+          <h1 class="title is-1 has-text-centered">Welcome to MaxFit</h1>
           <h2 class="subtitle is-3 has-text-centered has-text-primary">
             Your one stop app for sharing all things fitness and lifestyle.
           </h2>
