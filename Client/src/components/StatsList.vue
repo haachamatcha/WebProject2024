@@ -2,11 +2,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container">
+  <div class="container has-gap">
     <div class="columns">
       <div class="column is-one-quarter"></div>
       <div class="column is-half">
-        <div class="box">
+        <div class="box has-background-dark">
           <p class="has-text-centered has-text-primary">Today</p>
           <div class="columns is-multiline">
             <div class="content column is-half">
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-        <div class="box">
+        <div class="box has-background-dark">
           <p class="has-text-centered has-text-primary">This Week</p>
           <div class="columns is-multiline">
             <div class="content column is-half">
@@ -48,7 +48,7 @@
             </div>
           </div>
         </div>
-        <div class="box">
+        <div class="box has-background-dark">
           <p class="has-text-centered has-text-primary">All Time</p>
           <div class="columns is-multiline">
             <div class="content column is-half">
@@ -75,4 +75,6 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
