@@ -4,7 +4,7 @@ import SideMenu from '@/components/SideMenu.vue';
 </script>
 
 <template>
-  <div>
+  <div class="columns">
     <SideMenu />
   </div>
 </template>

@@ -45,7 +45,7 @@ const isOpen = ref(false)
           </span>
           Feed
         </RouterLink>-->
-        <RouterLink to="/activity" class="navbar-item">
+        <RouterLink to="/activity/allposts" class="navbar-item">
           <span class="icon">
             <i class="fas fa-running"></i>
           </span>
