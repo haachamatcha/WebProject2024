@@ -20,5 +20,6 @@ export interface Post {
     time?: string
     distance?: string
     caption: string
-    weight?: number
+    weight?: string
+    postid: number
 }

@@ -8,7 +8,8 @@
         "calories": 262,
         "date": "1, September, 2020",
         "distance": "43 minutes",
-        "caption": "I love running in the morning!"
+        "caption": "I love running in the morning!",
+        "postid" : 1
       },
       {
         "firstName": "James",
@@ -18,7 +19,8 @@
         "calories": 771,
         "date": "7, February, 2020",
         "distance": "12 miles",
-        "caption": "Long run today, feeling great!"
+        "caption": "Long run today, feeling great!",
+        "postid" : 2
       },
       {
         "firstName": "David",
@@ -28,7 +30,8 @@
         "calories": 606,
         "date": "20, February, 2024",
         "distance": "2 miles",
-        "caption": "Bike ride with my brother!"
+        "caption": "Bike ride with my brother!",
+        "postid" : 3
       },
       {
         "firstName": "David",
@@ -38,7 +41,8 @@
         "calories": 719,
         "date": "4, September, 2021",
         "distance": "27 minutes",
-        "caption": "Had a great time sparring with my friend today! He definitely won this time."
+        "caption": "Had a great time sparring with my friend today! He definitely won this time.",
+        "postid" : 4
       },
       {
         "firstName": "Sophia",
@@ -48,7 +52,8 @@
         "calories": 486,
         "date": "27, October, 2022",
         "distance": "73 minutes",
-        "caption": "Practiced spiking today with my volleyball team!"
+        "caption": "Practiced spiking today with my volleyball team!",
+        "postid" : 5
       },
       {
         "firstName": "Alex",
@@ -57,8 +62,9 @@
         "postType": "Strength",
         "calories": 428,
         "date": "11, September, 2020",
-        "weight": 90,
-        "caption": "Shout out to Coach Carter from Insane Fitness! He's the best!"
+        "weight": "90 lbs",
+        "caption": "Shout out to Coach Carter from Insane Fitness! He's the best!",
+        "postid" : 6
       },
       {
         "firstName": "Sarah",
@@ -68,7 +74,8 @@
         "calories": 208,
         "date": "6, December, 2022",
         "distance": "13 miles",
-        "caption": "Ran my first half marathon today!"
+        "caption": "Ran my first half marathon today!",
+        "postid" : 7
       },
       {
         "firstName": "Derek",
@@ -77,8 +84,9 @@
         "postType": "Strength",
         "calories": 215,
         "date": "27, April, 2023",
-        "weight": 225,
-        "caption": "I'm getting stronger every day! New PR on the squats!"
+        "weight": "225 lbs",
+        "caption": "I'm getting stronger every day! New PR on the squats!",
+        "postid" : 8
       },
       {
         "firstName": "Michael",
@@ -87,8 +95,9 @@
         "postType": "Strength",
         "calories": 424,
         "date": "28, December, 2020",
-        "weight": 80,
-        "caption": "Gotta start somewhere right? #newbie"
+        "weight": "80 lbs",
+        "caption": "Gotta start somewhere right? #newbie",
+        "postid" : 9
       },
       {
         "firstName": "Travis",
@@ -97,8 +106,9 @@
         "postType": "Strength",
         "calories": 772,
         "date": "5, January, 2022",
-        "weight": 265,
-        "caption": "Powerlifting training is going well! Competition here I come!"
+        "weight": "265 lbs",
+        "caption": "Powerlifting training is going well! Competition here I come!",
+        "postid" : 10
       }
     ]
   }
