@@ -28,7 +28,7 @@
         </form>
 
         <div class="has-text-centered">
-          <br><RouterLink to="/register" class="has-text-link">Don't have an account? Click here Register</RouterLink>
+          <br><RouterLink to="/register" class="has-text-info">Don't have an account? Click here Register</RouterLink>
         </div>
       </div>
     </div>

@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "firstname": "Admin",
+      "lastname": "User",
+      "email": "admin@admin.com",
+      "username": "admin",
+      "isadmin": true
+    },
+    {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "jdoe@example.com",
+      "username": "jdoe",
+      "isadmin": false
+    },
+    {
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "email": "janedoe@example.com",
+      "username": "doejane",
+      "isadmin": false
+    }
+  ]
+}
