@@ -4,16 +4,13 @@
   <div class="has-gap content column is-half">
     <div class="box has-background-dark">
       <h1 class="has-text-centered">Profile</h1>
-      <div class="columns">
-        <div class="column is-one-third"></div>
-        <div class="column is-one-third is-centered">
-          <figure class="image">
-            <img src="../assets/generic.jpg" alt="Avatar" class="profile-image" />
-          </figure>
-        </div>
-        <div class="column is-one-third"></div>
-      </div>
-      <div class="columns is-centered">
+
+      <!-- Center the image -->
+      <figure class="image is-centered">
+        <img src="../assets/generic.jpg" alt="Avatar" class="profile-image" />
+      </figure>
+
+      <div class="container has-gap columns is-centered">
         <div class="content">
           <h3 class="bold">(First Name) (Last Name)</h3>
           <h6 class="has-text-primary has-text-centered">@username</h6>
@@ -59,6 +56,14 @@
   border-radius: 50%;
   width: 192px;
   height: 192px;
-  margin-right: 1rem;
+  /* Remove the margin-right */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.image.is-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
+
