@@ -5,13 +5,18 @@
     <div class="box has-background-dark">
       <h1 class="has-text-centered">Profile</h1>
       <div class="columns">
-        <figure class="image">
-          <img src="../assets/generic.jpg" alt="Avatar" class="profile-image" />
-        </figure>
+        <div class="column is-one-third"></div>
+        <div class="column is-one-third is-centered">
+          <figure class="image">
+            <img src="../assets/generic.jpg" alt="Avatar" class="profile-image" />
+          </figure>
+        </div>
+        <div class="column is-one-third"></div>
+      </div>
+      <div class="columns is-centered">
         <div class="content">
-          <h3 class="bold">
-            (First Name) (Last Name) <small class="has-text-primary">@username</small>
-          </h3>
+          <h3 class="bold">(First Name) (Last Name)</h3>
+          <h6 class="has-text-primary has-text-centered">@username</h6>
           <div class="columns">
             <div class="column">
               <h4 class="is-3 has-text-centered">Posts</h4>
@@ -26,7 +31,6 @@
               <h5 class="has-text-primary has-text-centered">0</h5>
             </div>
           </div>
-          <div></div>
         </div>
       </div>
       <div class="columns">

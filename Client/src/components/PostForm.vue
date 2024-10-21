@@ -28,7 +28,6 @@
                 <option>Post Type</option>
                 <option value="cardio">Cardio</option>
                 <option value="strength">Strength</option>
-                <option value="meal">Meal</option>
               </select>
             </div>
           </div>
