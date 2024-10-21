@@ -19,7 +19,7 @@
       </div>
     </section>
     <section class="section">
-      <p class="title is-2 has-text-white has-text-centered">Tell your Maximum Fitness journey!</p>
+      <p class="title is-2 has-text-centered">Tell your Maximum Fitness journey!</p>
       <p class="subtitle has-text-centered has-text-primary">
         Learn about how you can maximize your fitness with MaxFit
       </p>
