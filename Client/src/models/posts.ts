@@ -21,5 +21,6 @@ export interface Post {
     distance?: string
     caption: string
     weight?: string
+    photo?: string
     postid: number
 }

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import PostCard from '@/components/PostCard.vue'
+import PostCard from '@/components/PostCard.vue';
 import { getAll, type Post } from '@/models/posts'
 import { ref } from 'vue'
 

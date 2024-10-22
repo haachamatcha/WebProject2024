@@ -9,6 +9,7 @@
         "date": "1, September, 2020",
         "distance": "43 minutes",
         "caption": "I love running in the morning!",
+        "photo" : "https://picsum.photos/id/379/500",
         "postid" : 1
       },
       {
@@ -20,6 +21,7 @@
         "date": "7, February, 2020",
         "distance": "12 miles",
         "caption": "Long run today, feeling great!",
+        "photo" : "https://picsum.photos/id/518/500",
         "postid" : 2
       },
       {
@@ -31,6 +33,7 @@
         "date": "20, February, 2024",
         "distance": "2 miles",
         "caption": "Bike ride with my brother!",
+        "photo" : "https://picsum.photos/id/203/500",
         "postid" : 3
       },
       {
@@ -75,6 +78,7 @@
         "date": "6, December, 2022",
         "distance": "13 miles",
         "caption": "Ran my first half marathon today!",
+        "photo" : "https://picsum.photos/id/550/500",
         "postid" : 7
       },
       {
