@@ -5,6 +5,7 @@
       "lastname": "User",
       "email": "admin@admin.com",
       "username": "admin",
+      "password": "password",
       "isadmin": true
     },
     {

@@ -1,4 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { type User} from '@/models/users'
+import { ref } from 'vue'
+
+const users = ref<User[]>([])
+const email = ref('');
+const password = ref('');
+
+</script>
 
 <template>
   <div class="section">
@@ -9,17 +17,17 @@
           <div class="field">
             <label for="email" class="label">Email</label>
             <div class="control">
-              <input type="email" id="email" class="input"/>
+              <input type="email" class="input" v-model="email"/>
             </div>
           </div>
           <div class="field">
             <label for="password" class="label">Password</label>
             <div class="control">
-              <input type="password" id="password" class="input" />
+              <input type="password" class="input" v-model="password"/>
             </div>
           </div>
           <div class="field has-text-centered">
-            <button class="button is-primary">
+            <button class="button is-primary" type="submit" @click="login">
               <span class="icon">
                 <i class="fas fa-sign-in-alt"></i>
               </span>
