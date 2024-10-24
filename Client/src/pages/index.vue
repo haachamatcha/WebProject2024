@@ -6,6 +6,9 @@ import { ref } from 'vue'
 
 const posts = ref<Post[]>([])
 posts.value = getAll().data
+
+
+posts.value = getAll().data.sort((a, b) => b.postid - a.postid);
 </script>
 
 <template>
