@@ -6,6 +6,7 @@
       "email": "admin@admin.com",
       "username": "admin",
       "password": "password",
+      "userid": 1,
       "isadmin": true
     },
     {
@@ -13,6 +14,7 @@
       "lastname": "Doe",
       "email": "jdoe@example.com",
       "username": "jdoe",
+      "userid" : 2,
       "isadmin": false
     },
     {
@@ -20,6 +22,7 @@
       "lastname": "Doe",
       "email": "janedoe@example.com",
       "username": "doejane",
+      "userid" : 3,
       "isadmin": false
     }
   ]

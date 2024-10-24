@@ -25,7 +25,8 @@ const submitPost = () => {
     date: new Date().toISOString(),
     caption: caption.value,
     calories: 500,
-    postid: 0
+    postid: 0,
+    userid: 0
   }
 
   addPost(newPost)

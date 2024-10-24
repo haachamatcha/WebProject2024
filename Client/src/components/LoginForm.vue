@@ -1,42 +1,67 @@
 <script setup lang="ts">
-import { type User} from '@/models/users'
-import { ref } from 'vue'
+import { ref } from 'vue';
+import { useRouter } from 'vue-router'; // To handle redirection
+import { login } from '@/models/users'; // Import login function
 
-const users = ref<User[]>([])
 const email = ref('');
 const password = ref('');
+const errorMessage = ref('');
+const router = useRouter();
 
+// Function to handle form submission
+const handleLogin = (e: Event) => {
+  e.preventDefault();
+  const user = login(email.value, password.value);
+  
+  if (user) {
+    // If login is successful, redirect to a dashboard or home page
+    router.push({ name: '/' });
+  } else {
+    // If login fails, display an error message
+    errorMessage.value = 'Invalid email or password.';
+  }
+};
 </script>
 
 <template>
   <div class="section">
     <div class="columns is-centered">
       <div class="column is-half">
-        <form action="" class="box has-background-dark">
+        <form @submit="handleLogin" class="box has-background-dark">
           <p class="title">Login</p>
+
+          <!-- Error Message Display -->
+          <p v-if="errorMessage" class="has-text-danger">{{ errorMessage }}</p>
+
           <div class="field">
             <label for="email" class="label">Email</label>
             <div class="control">
-              <input type="email" class="input" v-model="email"/>
+              <input type="email" class="input" v-model="email" required />
             </div>
           </div>
+
           <div class="field">
             <label for="password" class="label">Password</label>
             <div class="control">
-              <input type="password" class="input" v-model="password"/>
+              <input type="password" class="input" v-model="password" required />
             </div>
           </div>
+
           <div class="field has-text-centered">
-            <button class="button is-primary" type="submit" @click="login">
+            <button class="button is-primary" type="submit">
               <span class="icon">
                 <i class="fas fa-sign-in-alt"></i>
               </span>
-              &ensp; Login</button>
+              &ensp; Login
+            </button>
           </div>
         </form>
 
         <div class="has-text-centered">
-          <br><RouterLink to="/register" class="has-text-info">Don't have an account? Click here Register</RouterLink>
+          <br />
+          <RouterLink to="/register" class="has-text-info">
+            Don't have an account? Click here to Register
+          </RouterLink>
         </div>
       </div>
     </div>

@@ -22,6 +22,7 @@ export interface Post {
   weight?: string
   photo?: string
   postid: number
+  userid: number
 }
 
 const postList = ref<Post[]>(data.posts)
