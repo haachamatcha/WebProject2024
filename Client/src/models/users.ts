@@ -8,7 +8,6 @@ export function getAll(): DataListEnvelope<User> {
   };
 }
 
-// Updated login function for email and password
 export function login(email: string, password: string): User | undefined {
   const user = data.users.find(u => u.email === email && u.password === password);
   return user;

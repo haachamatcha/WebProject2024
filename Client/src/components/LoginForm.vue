@@ -1,23 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter } from 'vue-router'; // To handle redirection
-import { login } from '@/models/users'; // Import login function
+import { useRouter } from 'vue-router';
+import { login } from '@/models/users';
 
 const email = ref('');
 const password = ref('');
 const errorMessage = ref('');
 const router = useRouter();
 
-// Function to handle form submission
+
 const handleLogin = (e: Event) => {
   e.preventDefault();
   const user = login(email.value, password.value);
   
   if (user) {
-    // If login is successful, redirect to a dashboard or home page
     router.push({ name: '/' });
   } else {
-    // If login fails, display an error message
     errorMessage.value = 'Invalid email or password.';
   }
 };
@@ -30,7 +28,6 @@ const handleLogin = (e: Event) => {
         <form @submit="handleLogin" class="box has-background-dark">
           <p class="title">Login</p>
 
-          <!-- Error Message Display -->
           <p v-if="errorMessage" class="has-text-danger">{{ errorMessage }}</p>
 
           <div class="field">
