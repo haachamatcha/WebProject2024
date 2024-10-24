@@ -8,10 +8,10 @@ export function getAll(): DataListEnvelope<User> {
   }
 }   
 
-/*export function login(email: string, password: string): User | undefined {
+export function login(email: string, password: string): User | undefined {
   const user = data.users.find(u => u.email === email && u.password === password)
   return user
-}*/
+}
 
 export interface User {
     firstname: string

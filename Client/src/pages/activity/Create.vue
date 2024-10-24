@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
  <script setup lang="ts">
-import PostForm from '@/components/PostForm.vue';
+//import PostForm from '@/components/PostForm.vue';
 import SideMenu from '@/components/SideMenu.vue';
 
  
@@ -9,7 +9,6 @@ import SideMenu from '@/components/SideMenu.vue';
  <template>
     <div class="columns">
         <SideMenu />
-        <PostForm />
     </div>
  </template>
  

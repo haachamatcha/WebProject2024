@@ -6,3 +6,9 @@
     padding: 0px 20px;
 }
 
+.forced-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

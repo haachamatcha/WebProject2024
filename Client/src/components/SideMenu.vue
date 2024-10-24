@@ -6,7 +6,7 @@
       <p class="menu-label has-text-primary">Account Management</p>
       <ul class="menu-list">
         <li><RouterLink to="/activity/allposts">All Posts</RouterLink></li>
-        <li><RouterLink to="/activity/create">Create Post</RouterLink></li>
+        <!--<li><RouterLink to="/activity/create">Create Post</RouterLink></li>-->
         <li><RouterLink to="/activity/profile">Profile</RouterLink></li>
       </ul>
     </aside>
