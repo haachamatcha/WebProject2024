@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
+import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
+import { useAuth } from '../models/auth';
 
-const isOpen = ref(false)
+const isOpen = ref(false);
+const { loggedInUser, logoutUser } = useAuth();
+const handleLogout = () => {
+  logoutUser();
+};
 </script>
 
 <template>
@@ -39,12 +44,6 @@ const isOpen = ref(false)
           </span>
           Home
         </RouterLink>
-        <!--<RouterLink to="/feed" class="navbar-item">
-          <span class="icon">
-            <i class="fas fa-stream"></i>
-          </span>
-          Feed
-        </RouterLink>-->
         <RouterLink to="/activity/allposts" class="navbar-item">
           <span class="icon">
             <i class="fas fa-running"></i>
@@ -68,8 +67,13 @@ const isOpen = ref(false)
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <RouterLink to="/login" class="navbar-item has-text-primary">Login</RouterLink>
-            <RouterLink to="/register" class="navbar-item has-text-primary"> Register </RouterLink>
+            <template v-if="!loggedInUser">
+              <RouterLink to="/login" class="navbar-item has-text-primary">Login</RouterLink>
+              <RouterLink to="/register" class="navbar-item has-text-primary"> Register </RouterLink>
+            </template>
+            <template v-else>
+              <button class="button is-light" @click="handleLogout">Logout</button>
+            </template>
             <RouterLink to="/admin" class="navbar-item has-text-primary"> Admin </RouterLink>
             <RouterLink to="/about" class="navbar-item has-text-primary"> About </RouterLink>
           </div>

@@ -1,5 +1,8 @@
+import { ref } from 'vue';
 import data from '../data/users.json';
 import type { DataListEnvelope } from './dataEnvelope';
+
+export const currentUser = ref<User | null>(null);
 
 export function getAll(): DataListEnvelope<User> {
   return {
@@ -10,7 +13,14 @@ export function getAll(): DataListEnvelope<User> {
 
 export function login(email: string, password: string): User | undefined {
   const user = data.users.find(u => u.email === email && u.password === password);
+  if (user) {
+    currentUser.value = user;
+  }
   return user;
+}
+
+export function logout(): void {
+  currentUser.value = null; 
 }
 
 export interface User {

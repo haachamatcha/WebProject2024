@@ -1,19 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { login } from '@/models/users';
+import { useRouter } from 'vue-router'; 
+import { login } from '../models/users'; 
+import { useAuth } from '../models/auth';
 
 const email = ref('');
 const password = ref('');
 const errorMessage = ref('');
 const router = useRouter();
+const { loginUser } = useAuth(); 
 
 
 const handleLogin = (e: Event) => {
   e.preventDefault();
   const user = login(email.value, password.value);
-  
+
   if (user) {
+    loginUser(user);
     router.push({ name: '/' });
   } else {
     errorMessage.value = 'Invalid email or password.';

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Post } from '@/models/posts'
+import type { Post } from '../models/posts'
 defineProps<{ post: Post }>()
 
 // Reactive state for likes and comments
