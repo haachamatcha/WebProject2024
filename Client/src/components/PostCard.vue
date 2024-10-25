@@ -3,13 +3,11 @@ import { ref } from 'vue'
 import type { Post } from '../models/posts'
 defineProps<{ post: Post }>()
 
-// Reactive state for likes and comments
 const isLiked = ref(false)
 const likesCount = ref(0)
 const newComment = ref('')
 const comments = ref([])
 
-// Handle like button
 const toggleLike = () => {
   if (isLiked.value) {
     likesCount.value--
@@ -19,7 +17,6 @@ const toggleLike = () => {
   isLiked.value = !isLiked.value
 }
 
-// Handle new comment submission
 const submitComment = () => {
   if (newComment.value.trim()) {
     comments.value.push({
@@ -56,10 +53,8 @@ const submitComment = () => {
         </div>
       </div>
 
-      <!--photo here-->
       <div class="media-content column">
         <div class="is-centered">
-          <!--<img :src="post.photo" alt="Post Photo" />-->
           <img src="../assets/genericphoto.jpg" alt="Post Photo" />
         </div>
       </div>

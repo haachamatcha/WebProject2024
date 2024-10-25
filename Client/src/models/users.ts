@@ -28,7 +28,11 @@ export interface User {
   lastname: string;
   username: string;
   email: string;
-  password?: string;
+  password: string;
   userid: number;
   isadmin: boolean;
+  bio:string;
+  follwers?: number;
+  following?: number;
+  posts?: number;
 }

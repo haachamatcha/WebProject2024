@@ -31,23 +31,20 @@ const submitPost = () => {
 
   addPost(newPost)
   router.push('/')
-  isModalActive.value = false // Close modal after posting
+  isModalActive.value = false 
 }
 
 const cancelPost = () => {
   router.push('/')
-  isModalActive.value = false // Close modal on cancel
+  isModalActive.value = false 
 }
 </script>
 
 <template>
-  <div class="column is-half">
-    <!-- Button to trigger modal -->
     <div class="content has-text-centered">
-      <button class="button is-primary has-gap" @click="isModalActive = true">Create Post</button>
+      <button class="button" @click="isModalActive = true">Create Post</button>
     </div>
 
-    <!-- Modal -->
     <div class="modal" :class="{ 'is-active': isModalActive }">
       <div class="modal-background" @click="isModalActive = false"></div>
       <div class="modal-content">
@@ -112,7 +109,6 @@ const cancelPost = () => {
         @click="isModalActive = false"
       ></button>
     </div>
-  </div>
 </template>
 
 <style scoped>
@@ -124,5 +120,11 @@ const cancelPost = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button.is-active {
+    border-left: 4px solid #00d1b2;
+    color: #00d1b2;
+    font-weight: bold;
 }
 </style>

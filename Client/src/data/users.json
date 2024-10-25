@@ -7,23 +7,42 @@
       "username": "admin",
       "password": "password",
       "userid": 1,
-      "isadmin": true
+      "isadmin": true,
+      "bio": "I am the admin user"
     },
     {
       "firstname": "John",
       "lastname": "Doe",
       "email": "jdoe@example.com",
       "username": "jdoe",
+      "password": "jd",
       "userid" : 2,
-      "isadmin": false
+      "isadmin": false,
+      "bio": "I am John Doe"
     },
     {
       "firstname": "Jane",
       "lastname": "Doe",
       "email": "janedoe@example.com",
       "username": "doejane",
+      "password": "jd",
       "userid" : 3,
-      "isadmin": false
+      "isadmin": false,
+      "bio": "I am Jane Doe"
+    },
+
+    {
+      "firstname": "Mark",
+      "lastname": "Borja",
+      "email": "mb@email.com",
+      "username": "markborja",
+      "password": "mb",
+      "userid" : 4,
+      "isadmin": false,
+      "bio": "Lazy",
+      "followers": 123,
+      "following": 321,
+      "posts": 0
     }
   ]
 }

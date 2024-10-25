@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
-import { ref } from 'vue';
-import { useAuth } from '../models/auth';
+import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
+import { useAuth } from '../models/auth'
 
-const isOpen = ref(false);
-const { loggedInUser, logoutUser } = useAuth();
+const isOpen = ref(false)
+const { loggedInUser, logoutUser } = useAuth()
 const handleLogout = () => {
-  logoutUser();
-};
+  logoutUser()
+}
 </script>
 
 <template>
@@ -67,15 +67,11 @@ const handleLogout = () => {
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <template v-if="!loggedInUser">
-              <RouterLink to="/login" class="navbar-item has-text-primary">Login</RouterLink>
-              <RouterLink to="/register" class="navbar-item has-text-primary"> Register </RouterLink>
-            </template>
-            <template v-else>
-              <button class="button is-light" @click="handleLogout">Logout</button>
-            </template>
-            <RouterLink to="/admin" class="navbar-item has-text-primary"> Admin </RouterLink>
-            <RouterLink to="/about" class="navbar-item has-text-primary"> About </RouterLink>
+              <RouterLink v-if="!loggedInUser" to="/login" class="navbar-item has-text-primary">Login</RouterLink>
+              <RouterLink v-if="!loggedInUser" to="/register" class="has-text-primary">Register</RouterLink>
+              <button v-else class="button is-light" @click="handleLogout">Logout</button>
+            <RouterLink to="/admin" class="navbar-item has-text-primary">Admin</RouterLink>
+            <RouterLink to="/about" class="navbar-item has-text-primary">About</RouterLink>
           </div>
         </div>
       </div>
