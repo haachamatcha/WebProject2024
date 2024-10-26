@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { type Post, addPost } from '../models/posts'
+import { useAuth } from '../models/auth'
 
 const caption = ref<string>('')
 const time = ref<string>('')
@@ -17,16 +18,16 @@ const submitPost = () => {
   }
 
   const newPost: Post = {
-    firstName: '(First)',
-    lastName: '(Last)',
-    username: 'User',
+    firstName: loggedInUser.value.firstname,
+    lastName: loggedInUser.value.lastname,
+    username: loggedInUser.value.username,
     postType: postType.value,
     time: time.value,
     date: new Date().toISOString(),
     caption: caption.value,
     calories: 500,
     postid: 0,
-    userid: 0
+    userid: loggedInUser.value.userid,
   }
 
   addPost(newPost)
@@ -38,6 +39,9 @@ const cancelPost = () => {
   router.push('/')
   isModalActive.value = false 
 }
+
+const { loggedInUser } = useAuth()
+const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 </script>
 
 <template>

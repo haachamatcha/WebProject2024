@@ -8,7 +8,25 @@
       "password": "password",
       "userid": 1,
       "isadmin": true,
-      "bio": "I am the admin user"
+      "bio": "I am the admin user",
+      "statsToday": {
+        "maxlift": 200,
+        "maxtime": "2:00",
+        "maxdist": 5,
+        "maxcal": 500
+      },
+      "statsWeek": {
+        "maxlift": 200,
+        "maxtime": "5:30",
+        "maxdist": 15,
+        "maxcal": 2000
+      },
+      "statsAll": {
+        "maxlift": 250,
+        "maxtime": "10:00",
+        "maxdist": 30,
+        "maxcal": 5000
+      }
     },
     {
       "firstname": "John",
@@ -42,7 +60,25 @@
       "bio": "Lazy",
       "followers": 123,
       "following": 321,
-      "posts": 0
+      "posts": 0,
+      "statsToday": {
+        "maxlift": 200,
+        "maxtime": "2:00",
+        "maxdist": 5,
+        "maxcal": 500
+      },
+      "statsWeek": {
+        "maxlift": 200,
+        "maxtime": "5:30",
+        "maxdist": 15,
+        "maxcal": 2000
+      },
+      "statsAll": {
+        "maxlift": 250,
+        "maxtime": "10:00",
+        "maxdist": 30,
+        "maxcal": 5000
+      }
     }
   ]
 }

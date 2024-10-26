@@ -14,7 +14,7 @@ posts.value = getAll().data.sort((a, b) => b.postid - a.postid)
 
 const userPosts = computed(() => {
   if (loggedInUser.value) {
-    return posts.value.filter(post => post.userid === loggedInUser.value?.userid)
+    return posts.value.filter((post) => post.userid === loggedInUser.value?.userid)
   }
   return []
 })
@@ -23,7 +23,14 @@ const userPosts = computed(() => {
 <template>
   <div class="columns">
     <SideMenu />
-    <PostCard v-for="post in userPosts" :key="post.postid" :post="post" class="column is-half"/>
+    <div v-if="loggedInUser"  class="column is-half">
+      <PostCard v-for="post in userPosts" :key="post.postid" :post="post"/>
+    </div>
+    <div v-else class="column is-half box has-background-danger has-text-centered has-gap content">
+      <h1 class="has-text-white">Error</h1>
+      <p class="has-text-white">You need to be logged in to view your posts.</p>
+      <RouterLink to="/login" class="button is-light">Go to Login</RouterLink>
+    </div>
   </div>
 </template>
 

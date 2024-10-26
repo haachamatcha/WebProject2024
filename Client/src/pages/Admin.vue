@@ -1,18 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import UserList from '@/components/UserList.vue'
-
 import { useAuth } from '@/models/auth'
 import { ref } from 'vue'
 
 const { loggedInUser } = useAuth()
 
 const isLoggedIn = ref<boolean>(!!loggedInUser.value)
-const isAdmin = ref<boolean>(loggedInUser.value.isadmin || false)
 </script>
 
 <template>
-  <div class="container has-gap content" v-if="isLoggedIn && isAdmin">
+  <div class="container has-gap content" v-if="isLoggedIn">
     <UserList />
   </div>
   <div class="container has-gap content" v-else>

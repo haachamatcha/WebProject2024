@@ -35,4 +35,23 @@ export interface User {
   follwers?: number;
   following?: number;
   posts?: number;
+  statsToday?: {
+    maxlift: number;
+    maxtime: string;
+    maxdist: number;
+    maxcal: number;
+  }
+  statsWeek?: {
+    maxlift: number;
+    maxtime: string;
+    maxdist: number;
+    maxcal: number;
+  }
+  statsAll?: {
+    maxlift: number;
+    maxtime: string;
+    maxdist: number;
+    maxcal: number;
+  }
 }
+
