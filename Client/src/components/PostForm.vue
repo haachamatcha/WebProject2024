@@ -17,6 +17,11 @@ const submitPost = () => {
     return
   }
 
+  if (!loggedInUser.value) {
+    alert('User is not logged in')
+    return
+  }
+
   const newPost: Post = {
     firstName: loggedInUser.value.firstname,
     lastName: loggedInUser.value.lastname,

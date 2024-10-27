@@ -5,7 +5,7 @@ import { useAuth } from '@/models/auth'
 
 const { loggedInUser } = useAuth()
 const isLoggedIn = ref<boolean>(!!loggedInUser.value)
-const isAdmin = ref<boolean>(loggedInUser.value.isadmin || false)
+const isAdmin = ref<boolean>(loggedInUser.value?.isadmin || false)
 const users = ref<User[]>([])
 users.value = getAll().data
 

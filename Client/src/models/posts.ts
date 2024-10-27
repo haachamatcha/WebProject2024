@@ -32,3 +32,9 @@ export function addPost(post: Post) {
   post.postid = data.posts.length + 1
   postList.value.push(post)
 }
+
+export interface Comment {
+  username: string;
+  comment: string;
+  date: string;
+}

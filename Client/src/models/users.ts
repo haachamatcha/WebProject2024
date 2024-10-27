@@ -32,7 +32,7 @@ export interface User {
   userid: number;
   isadmin: boolean;
   bio:string;
-  follwers?: number;
+  followers?: number;
   following?: number;
   posts?: number;
   statsToday?: {

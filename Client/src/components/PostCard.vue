@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { Post } from '../models/posts'
+import type {Comment} from '../models/posts'
 defineProps<{ post: Post }>()
 
 const isLiked = ref(false)
 const likesCount = ref(0)
 const newComment = ref('')
-const comments = ref([])
+
+const comments = ref<Comment[]>([])
 
 const toggleLike = () => {
   if (isLiked.value) {

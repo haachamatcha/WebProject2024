@@ -17,21 +17,21 @@ const isLoggedIn = ref<boolean>(!!loggedInUser.value)
       <div class="container has-gap columns is-centered">
         <div class="content">
           <h3 class="bold has-text-centered">
-            {{ loggedInUser.firstname }} {{ loggedInUser.lastname }}
+            {{ loggedInUser?.firstname }} {{ loggedInUser?.lastname }}
           </h3>
-          <h6 class="has-text-primary has-text-centered">@{{ loggedInUser.username }}</h6>
+          <h6 class="has-text-primary has-text-centered">@{{ loggedInUser?.username }}</h6>
           <div class="columns">
             <div class="column">
               <h4 class="is-3 has-text-centered">Posts</h4>
-              <h5 class="has-text-primary has-text-centered">{{ loggedInUser.posts }}</h5>
+              <h5 class="has-text-primary has-text-centered">{{ loggedInUser?.posts }}</h5>
             </div>
             <div class="column">
               <h4 class="is-3 has-text-centered">Followers</h4>
-              <h5 class="has-text-primary has-text-centered">{{loggedInUser.followers}}</h5>
+              <h5 class="has-text-primary has-text-centered">{{loggedInUser?.followers}}</h5>
             </div>
             <div class="column">
               <h4 class="is-3 has-text-centered">Following</h4>
-              <h5 class="has-text-primary has-text-centered">{{ loggedInUser.following }}</h5>
+              <h5 class="has-text-primary has-text-centered">{{ loggedInUser?.following }}</h5>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ const isLoggedIn = ref<boolean>(!!loggedInUser.value)
       <div class="columns">
         <div class="column">
           <p class="has-text-centered">
-           {{ loggedInUser.bio }}
+           {{ loggedInUser?.bio }}
           </p>
         </div>
       </div>
