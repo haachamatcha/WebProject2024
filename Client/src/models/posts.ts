@@ -38,3 +38,8 @@ export interface Comment {
   comment: string;
   date: string;
 }
+
+export function deletePost(postid: number) {
+  const index = postList.value.findIndex(p => p.postid === postid)
+  postList.value.splice(index, 1)
+}

@@ -29,6 +29,7 @@ const submitComment = () => {
     newComment.value = ''
   }
 }
+
 </script>
 
 <template>

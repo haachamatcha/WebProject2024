@@ -9,6 +9,9 @@ const isAdmin = ref<boolean>(loggedInUser.value?.isadmin || false)
 const users = ref<User[]>([])
 users.value = getAll().data
 
+function removeUser(username: string) {
+  users.value = users.value.filter((user) => user.username !== username)
+}
 </script>
 
 <template>
@@ -23,6 +26,7 @@ users.value = getAll().data
             <th>Username</th>
             <th>Email</th>
             <th>Admin</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -32,6 +36,11 @@ users.value = getAll().data
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.isadmin }}</td>
+            <td>
+              <button @click="removeUser(user.username)" class="button is-danger is-small">
+                Remove
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
