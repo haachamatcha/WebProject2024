@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { Post } from '../models/posts'
-import type {Comment} from '../models/posts'
+import type { Comment } from '../models/posts'
 defineProps<{ post: Post }>()
+import { deletePost } from '../models/posts'
 
 const isLiked = ref(false)
 const likesCount = ref(0)
@@ -29,6 +30,7 @@ const submitComment = () => {
     newComment.value = ''
   }
 }
+
 
 </script>
 
@@ -58,7 +60,7 @@ const submitComment = () => {
 
       <div class="media-content column">
         <div class="is-centered">
-          <img src="../assets/genericphoto.jpg" alt="Post Photo" />
+          <img :src="post.photo" alt="Post Photo" />
         </div>
       </div>
 
@@ -69,9 +71,9 @@ const submitComment = () => {
           </span>
           <span class="">{{ likesCount }} {{ likesCount === 1 ? 'Like' : 'Likes' }}</span>
         </button>
-        
+
         &ensp;
-        
+
         <button class="">
           <span class="icon">
             <i class="fas fa-share"></i>
@@ -93,16 +95,14 @@ const submitComment = () => {
         <div class="field mt-4">
           <label class="label">Add a Comment</label>
           <div class="control has-icons-right is-flex">
-            <input
-              v-model="newComment"
-              class="input"
-              type="text"
-              placeholder="Write a comment..."
-            />
+            <input v-model="newComment" class="input" type="text" placeholder="Write a comment..." />
             <button class="button is-primary ml-2" @click="submitComment">Submit</button>
           </div>
         </div>
       </div>
+    </div>
+    <div class="media-right">
+      <button class="delete" @click="deletePost(post.postid)"></button>
     </div>
   </div>
 </template>
@@ -136,5 +136,4 @@ const submitComment = () => {
 .icon {
   margin-right: 0.5rem;
 }
-
 </style>

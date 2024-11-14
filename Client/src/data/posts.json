@@ -134,6 +134,7 @@
         "date": "1, September, 2020",
         "distance": "43 minutes",
         "caption": "I love running in the morning!",
+        "photo" : "../assets/genericphoto.jpg",
         "postid" : 11,
         "userid": 1
       }
