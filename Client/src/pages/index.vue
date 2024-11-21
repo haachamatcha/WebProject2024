@@ -1,13 +1,20 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import PostCard from '@/components/PostCard.vue';
-import { getAll, type Post } from '../models/posts';
+//import { getAll, type Post } from '../models/posts';
 import { ref } from 'vue';
+
+import {getAll, type Post} from '@/models/posts';
 import { useAuth } from '../models/auth';
 
-const posts = ref<Post[]>(getAll().data.sort((a, b) => b.postid - a.postid));
+const posts = ref<Post[]>([]);
+  getAll().then((data) => {
+    console.log(data);
+    posts.value = data.data;
+});
 
 const { loggedInUser } = useAuth();
+
 </script>
 
 <template>

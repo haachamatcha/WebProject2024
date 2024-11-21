@@ -1,0 +1,143 @@
+{
+    "posts": [
+      {
+        "firstName": "Jessica",
+        "lastName": "Brown",
+        "username": "jess_moves",
+        "postType": "Cardio",
+        "calories": 262,
+        "date": "1, September, 2020",
+        "distance": "43 minutes",
+        "caption": "I love running in the morning!",
+        "photo" : "https://picsum.photos/id/379/500",
+        "postid" : 1,
+        "userid" : 283
+      },
+      {
+        "firstName": "James",
+        "lastName": "Johnson",
+        "username": "jjohns1",
+        "postType": "Cardio",
+        "calories": 771,
+        "date": "7, February, 2020",
+        "distance": "12 miles",
+        "caption": "Long run today, feeling great!",
+        "photo" : "https://picsum.photos/id/518/500",
+        "postid" : 2,
+        "userid" : 284
+      },
+      {
+        "firstName": "David",
+        "lastName": "Davis",
+        "username": "davis_burns",
+        "postType": "Cardio",
+        "calories": 606,
+        "date": "20, February, 2024",
+        "distance": "2 miles",
+        "caption": "Bike ride with my brother!",
+        "photo" : "https://picsum.photos/id/203/500",
+        "postid" : 3,
+        "userid" : 285
+      },
+      {
+        "firstName": "David",
+        "lastName": "Jones",
+        "username": "its_djones",
+        "postType": "Cardio",
+        "calories": 719,
+        "date": "4, September, 2021",
+        "distance": "27 minutes",
+        "caption": "Had a great time sparring with my friend today! He definitely won this time.",
+        "postid" : 4,
+        "userid" : 286
+      },
+      {
+        "firstName": "Sophia",
+        "lastName": "Williams",
+        "username": "exercise_lover12",
+        "postType": "Cardio",
+        "calories": 486,
+        "date": "27, October, 2022",
+        "distance": "73 minutes",
+        "caption": "Practiced spiking today with my volleyball team!",
+        "postid" : 5,
+        "userid" : 287
+      },
+      {
+        "firstName": "Alex",
+        "lastName": "Rodriguez",
+        "username": "arodriguez_17",
+        "postType": "Strength",
+        "calories": 428,
+        "date": "11, September, 2020",
+        "weight": "90 lbs",
+        "caption": "Shout out to Coach Carter from Insane Fitness! He's the best!",
+        "postid" : 6,
+        "userid" : 288
+      },
+      {
+        "firstName": "Sarah",
+        "lastName": "Love",
+        "username": "sl_fit",
+        "postType": "Cardio",
+        "calories": 208,
+        "date": "6, December, 2022",
+        "distance": "13 miles",
+        "caption": "Ran my first half marathon today!",
+        "photo" : "https://picsum.photos/id/550/500",
+        "postid" : 7,
+        "userid" : 289
+      },
+      {
+        "firstName": "Derek",
+        "lastName": "Nguyen",
+        "username": "asian_guy_lifts",
+        "postType": "Strength",
+        "calories": 215,
+        "date": "27, April, 2023",
+        "weight": "225 lbs",
+        "caption": "I'm getting stronger every day! New PR on the squats!",
+        "postid" : 8,
+        "userid" : 290
+      },
+      {
+        "firstName": "Michael",
+        "lastName": "Jones",
+        "username": "its_not_mj",
+        "postType": "Strength",
+        "calories": 424,
+        "date": "28, December, 2020",
+        "weight": "80 lbs",
+        "caption": "Gotta start somewhere right? #newbie",
+        "postid" : 9,
+        "userid" : 291
+      },
+      {
+        "firstName": "Travis",
+        "lastName": "Oak",
+        "username": "its_travee",
+        "postType": "Strength",
+        "calories": 772,
+        "date": "5, January, 2022",
+        "weight": "265 lbs",
+        "caption": "Powerlifting training is going well! Competition here I come!",
+        "postid" : 10,
+        "userid" : 292
+      },
+
+      {
+        "firstName": "Admin",
+        "lastName": "Admin",
+        "username": "admin",
+        "postType": "Cardio",
+        "calories": 262,
+        "date": "1, September, 2020",
+        "distance": "43 minutes",
+        "caption": "I love running in the morning!",
+        "photo" : "@/assets/genericphoto.jpg",
+        "postid" : 11,
+        "userid": 1
+      }
+    ]
+  }
+  

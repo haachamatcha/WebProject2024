@@ -1,37 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { Post } from '../models/posts'
-import type { Comment } from '../models/posts'
-defineProps<{ post: Post }>()
-import { deletePost } from '../models/posts'
+import { ref } from 'vue';
+import type { Post, Comment } from '../models/posts'; // Assuming Post and Comment are defined here
+import { deletePost } from '../models/posts'; // Assuming deletePost is a function for deleting posts
+import { toggleLike, submitComment } from '../models/posts'; // Import the utility functions
 
-const isLiked = ref(false)
-const likesCount = ref(0)
-const newComment = ref('')
+defineProps<{ post: Post }>();
 
-const comments = ref<Comment[]>([])
+// State variables
+const isLiked = ref(false);
+const likesCount = ref(0);
+const newComment = ref('');
+const comments = ref<Comment[]>([]);
 
-const toggleLike = () => {
-  if (isLiked.value) {
-    likesCount.value--
-  } else {
-    likesCount.value++
-  }
-  isLiked.value = !isLiked.value
-}
-
-const submitComment = () => {
-  if (newComment.value.trim()) {
-    comments.value.push({
-      username: 'currentUser',
-      comment: newComment.value.trim(),
-      date: new Date().toLocaleDateString()
-    })
-    newComment.value = ''
-  }
-}
-
-
+// Event handlers
+const handleToggleLike = () => toggleLike(isLiked, likesCount);
+const handleSubmitComment = () => submitComment(newComment, comments);
 </script>
 
 <template>
@@ -65,7 +48,7 @@ const submitComment = () => {
       </div>
 
       <div class="is-flex is-align-items-center has-gap">
-        <button class="button is-primary" @click="toggleLike">
+        <button class="button is-primary" @click="handleToggleLike">
           <span class="icon">
             <i :class="{ 'fas fa-heart': isLiked, 'far fa-heart': !isLiked }"></i>
           </span>
@@ -96,7 +79,7 @@ const submitComment = () => {
           <label class="label">Add a Comment</label>
           <div class="control has-icons-right is-flex">
             <input v-model="newComment" class="input" type="text" placeholder="Write a comment..." />
-            <button class="button is-primary ml-2" @click="submitComment">Submit</button>
+            <button class="button is-primary ml-2" @click="handleSubmitComment">Submit</button>
           </div>
         </div>
       </div>
