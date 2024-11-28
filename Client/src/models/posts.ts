@@ -30,13 +30,12 @@ export interface Post {
   lastName: string
   username: string
   postType: string
-  calories?: number
+  calories: number
+  record: number
+  unit: string
   date: string
-  time?: string
-  distance?: string
   caption: string
-  weight?: string
-  photo?: string
+  photo: string
   postid: number
   userid: number
 }

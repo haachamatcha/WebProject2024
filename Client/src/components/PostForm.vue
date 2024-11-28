@@ -5,14 +5,16 @@ import { type Post, addPost } from '../models/posts'
 import { useAuth } from '../models/auth'
 
 const caption = ref<string>('')
-const time = ref<string>('')
 const postType = ref<string>('Post Type')
 const isModalActive = ref<boolean>(false)
+const calories = ref<number>(0)
+const record = ref<number>(0)
+const unit = ref<string>('')
 
 const router = useRouter()
 
 const submitPost = () => {
-  if (!caption.value || !time.value || postType.value === 'Post Type') {
+  if (!caption.value || postType.value === 'Post Type') {
     alert('Please fill out all fields correctly')
     return
   }
@@ -27,97 +29,121 @@ const submitPost = () => {
     lastName: loggedInUser.value.lastname,
     username: loggedInUser.value.username,
     postType: postType.value,
-    time: time.value,
+    record: record.value,
+    unit: unit.value,
     date: new Date().toISOString(),
     caption: caption.value,
-    calories: 500,
+    calories: calories.value,
+    photo: "generic",
     postid: 0,
     userid: loggedInUser.value.userid,
   }
 
   addPost(newPost)
   router.push('/')
-  isModalActive.value = false 
+  isModalActive.value = false
 }
 
 const cancelPost = () => {
   router.push('/')
-  isModalActive.value = false 
+  isModalActive.value = false
 }
 
 const { loggedInUser } = useAuth()
-const isLoggedIn = ref<boolean>(!!loggedInUser.value)
+//const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 </script>
 
 <template>
-    <div class="content has-text-centered">
-      <button class="button" @click="isModalActive = true">Create Post</button>
-    </div>
+  <div class="content has-text-centered">
+    <button class="button" @click="isModalActive = true">Create Post</button>
+  </div>
 
-    <div class="modal" :class="{ 'is-active': isModalActive }">
-      <div class="modal-background" @click="isModalActive = false"></div>
-      <div class="modal-content">
-        <div class="box has-background-dark">
-          <h1 class="has-text-centered has-text-white">Create a Post</h1>
+  <div class="modal" :class="{ 'is-active': isModalActive }">
+    <div class="modal-background" @click="isModalActive = false"></div>
+    <div class="modal-content">
+      <div class="box has-background-dark">
+        <h1 class="has-text-centered has-text-white">Create a Post</h1>
 
-          <div class="container">
-            <div class="field">
-              <div class="control">
-                <label for="title" class="label has-text-white">Caption</label>
-                <input
-                  type="text"
-                  id="title"
-                  class="input"
-                  v-model="caption"
-                  placeholder="Enter a caption"
-                />
-              </div>
+        <div class="container">
+          <div class="field">
+            <div class="control">
+              <label for="title" class="label has-text-white">Caption</label>
+              <input type="text" id="title" class="input" v-model="caption" placeholder="Enter a caption" />
             </div>
+          </div>
 
-            <div class="field">
-              <div class="control">
-                <label for="duration" class="label has-text-white">Duration</label>
-                <input
-                  type="text"
-                  id="duration"
-                  class="input"
-                  v-model="time"
-                  placeholder="Enter duration"
-                />
-              </div>
-            </div>
-
-            <div class="field">
-              <div class="control">
-                <label for="postType" class="label has-text-white">Exercise Type</label>
-                <div class="select">
-                  <select id="postType" v-model="postType">
-                    <option disabled value="Post Type">Post Type</option>
-                    <option value="Cardio">Cardio</option>
-                    <option value="Strength">Strength</option>
-                  </select>
-                </div>
+          <div class="field">
+            <div class="control">
+              <label for="postType" class="label has-text-white">Exercise Type</label>
+              <div class="select">
+                <select id="postType" v-model="postType">
+                  <option disabled value="">Select Exercise Type</option>
+                  <option value="Cardio">Cardio</option>
+                  <option value="Strength">Strength</option>
+                </select>
               </div>
             </div>
           </div>
 
-          <br />
+          <div v-if="postType === 'Cardio'">
+            <div class="field">
+              <label class="label has-text-white">Calories Burned</label>
+              <div class="control">
+                <input type="number" class="input" v-model="calories" placeholder="Enter calories burned" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label has-text-white">Record</label>
+              <div class="control">
+                <input type="number" class="input" v-model="record" placeholder="Enter duration or distance" />
+              </div>
+            </div>
+            <div class="field">
+              <div class="select">
+                <select id="postUnit" v-model="unit">
+                  <option disabled value="">Select Unit</option>
+                  <option value="Minutes">Minutes</option>
+                  <option value="Miles">Miles</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-          <div class="field has-text-centered">
-            <div class="is-grouped">
-              <button class="button is-primary" @click="submitPost">Post</button>
-              &ensp;
-              <button class="button is-danger" @click="cancelPost">Cancel</button>
+          <!-- Strength-specific Fields -->
+          <div v-else-if="postType === 'Strength'">
+            <div class="field">
+              <label class="label has-text-white">Calories Burned</label>
+              <div class="control">
+                <input type="number" class="input" v-model="calories" placeholder="Enter calories burned" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label has-text-white">Weight</label>
+              <div class="control">
+                <input type="number" class="input" v-model="record" placeholder="Enter weight lifted" />
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input type="hidden" class="input" v-model="unit" value="Pounds" />
+              </div>
             </div>
           </div>
         </div>
+
+        <br />
+
+        <div class="field has-text-centered">
+          <div class="is-grouped">
+            <button class="button is-primary" @click="submitPost">Post</button>
+            &ensp;
+            <button class="button is-danger" @click="cancelPost">Cancel</button>
+          </div>
+        </div>
       </div>
-      <button
-        class="modal-close is-large"
-        aria-label="close"
-        @click="isModalActive = false"
-      ></button>
     </div>
+    <button class="modal-close is-large" aria-label="close" @click="isModalActive = false"></button>
+  </div>
 </template>
 
 <style scoped>
@@ -132,8 +158,8 @@ const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 }
 
 .button.is-active {
-    border-left: 4px solid #00d1b2;
-    color: #00d1b2;
-    font-weight: bold;
+  border-left: 4px solid #00d1b2;
+  color: #00d1b2;
+  font-weight: bold;
 }
 </style>

@@ -1,0 +1,42 @@
+GET http://localhost:3000/api/v1/posts/1
+###
+DELETE http://localhost:3000/api/v1/posts/1
+###
+POST http://localhost:3000/api/v1/posts
+Content-Type: application/json
+
+{
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "username": "admin",
+      "postType": "Cardio",
+      "calories": 100,
+      "date": "1 January 2020",
+      "record": 100,
+      "unit" : "Minutes",
+      "caption": "Test",
+      "photo" : "../assets/genericphoto.jpg",
+      "postid" : 12,
+      "userid": 1
+}
+
+###
+PATCH http://localhost:3000/api/v1/posts/12
+Content-Type: application/json
+
+{
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "username": "admin",
+      "postType": "Cardio",
+      "calories": 110,
+      "date": "1 January 2020",
+      "record": 100,
+      "unit" : "Minutes",
+      "caption": "Test 3",
+      "photo" : "../assets/genericphoto.jpg",
+      "postid" : 12,
+      "userid": 1
+}
+###
+GET http://localhost:3000/api/v1/posts

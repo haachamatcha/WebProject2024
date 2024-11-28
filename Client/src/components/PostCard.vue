@@ -36,8 +36,8 @@ const handleSubmitComment = () => submitComment(newComment, comments);
           <p class="has-text-primary">Type</p>
         </div>
         <div class="column">
-          <h3 class="is-3">{{ post.time }} {{ post.distance }} {{ post.weight }}</h3>
-          <p class="has-text-primary">Time, Distance, Weight</p>
+          <h3 class="is-3">{{ post.record }} {{ post.unit }}</h3>
+          <p class="has-text-primary">{{ post.unit }}</p>
         </div>
       </div>
 

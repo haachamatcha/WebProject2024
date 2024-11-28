@@ -1,7 +1,9 @@
 /** @type {{ posts: Post[] }} */
+
 const data = require("../data/posts.json"); // Adjust the path to your JSON file
-const db = require("./supabase");
-const conn = getConnection();
+//const db = require("./supabase");
+//const conn = getConnection();
+
 
 /**
  * @template T
@@ -17,21 +19,21 @@ const conn = getConnection();
  * Get all posts
  * @returns {Promise<DataListEnvelope<Post>>}
  */
-/*async function getAll() {
-    return {
-        isSuccess: true,
-        data: data.posts,
-        total: data.posts.length,
-    };
-}*/
-async function getAll(){
-    const {data, error} = await conn.from('posts').select('*', {count: "estimated"});
+async function getAll() {
     return {
         isSuccess: true,
         data: data.posts,
         total: data.posts.length,
     };
 }
+/*async function getAll(){
+    const {data, error} = await conn.from('posts').select('*', {count: "estimated"});
+    return {
+        isSuccess: true,
+        data: data.posts,
+        total: data.posts.length,
+    };
+}*/
 
 /**
  * Get a post by ID
