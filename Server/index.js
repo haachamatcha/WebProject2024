@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-//const userController = require("../controllers/users");
-const postController = require("./controllers/posts"); // Changed from products to posts
+const userController = require("./controllers/users");
+const postController = require("./controllers/posts");
 
 const PORT = 3000;
 
@@ -20,11 +20,11 @@ app.use(express.static(__dirname + "/dist"));
 app.get("/", (req, res, next) => {
     res.send("Hello World");
 })
-    .get("/about", (req, res, next) => {
+    /*.get("/about", (req, res, next) => {
         res.send("About Us");
-    })
-    //.use("/api/v1/users", userController)
-    .use("/api/v1/posts", postController) // Updated route for posts
+    })*/
+    .use("/api/v1/users", userController)
+    .use("/api/v1/posts", postController)
 
     .get("*", (req, res, next) => {
         res.sendFile(__dirname + "/dist/index.html");

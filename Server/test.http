@@ -40,3 +40,73 @@ Content-Type: application/json
 }
 ###
 GET http://localhost:3000/api/v1/posts
+
+###
+GET http://localhost:3000/api/v1/users/
+
+###
+GET http://localhost:3000/api/v1/users/2
+
+###
+PATCH http://localhost:3000/api/v1/users/2
+
+Content-Type: application/json
+      {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "jdoe@example.com",
+      "username": "jdoe",
+      "password": "jd",
+      "userid" : 2,
+      "isadmin": false,
+      "bio": "Test Update",
+      "followers": 123,
+      "following": 321,
+      "posts": 0,
+      "statsToday": {
+        "maxlift": 200,
+        "maxtime": "2:00",
+        "maxdist": 5,
+        "maxcal": 500
+      },
+      "statsAll": {
+        "maxlift": 250,
+        "maxtime": "10:00",
+        "maxdist": 30,
+        "maxcal": 5000
+      }
+      
+    }
+
+###
+DELETE http://localhost:3000/api/v1/users/5
+
+###
+POST http://localhost:3000/api/v1/users/
+Content-Type: application/json
+
+{
+      "firstname": "Nicole",
+      "lastname": "Lacsamana",
+      "email": "nl@email.com",
+      "username": "nlacsamana",
+      "password": "nl",
+      "userid" : 5,
+      "isadmin": false,
+      "bio": "Test add",
+      "followers": 123,
+      "following": 321,
+      "posts": 0,
+      "statsToday": {
+        "maxlift": 200,
+        "maxtime": "2:00",
+        "maxdist": 5,
+        "maxcal": 500
+      },
+      "statsAll": {
+        "maxlift": 250,
+        "maxtime": "10:00",
+        "maxdist": 30,
+        "maxcal": 5000
+      }
+}
