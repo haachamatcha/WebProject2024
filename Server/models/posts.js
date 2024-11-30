@@ -1,24 +1,7 @@
-/** @type {{ posts: Post[] }} */
-
 const data = require("../data/posts.json"); // Adjust the path to your JSON file
 //const db = require("./supabase");
 //const conn = getConnection();
 
-
-/**
- * @template T
- * @typedef {import("../../Client/src/models/dataEnvelope").DataEnvelope} DataEnvelope
- * @typedef {import("../../Client/src/models/dataEnvelope").DataListEnvelope} DataListEnvelope
- */
-
-/**
- * @typedef {import("../../Client/src/models/posts").Post} Post
- */
-
-/**
- * Get all posts
- * @returns {Promise<DataListEnvelope<Post>>}
- */
 async function getAll() {
     return {
         isSuccess: true,
@@ -35,11 +18,6 @@ async function getAll() {
     };
 }*/
 
-/**
- * Get a post by ID
- * @param {number} postid
- * @returns {Promise<DataEnvelope<Post>>}
- */
 async function get(postid) {
     const post = data.posts.find((item) => item.postid === postid);
     return {
@@ -48,11 +26,15 @@ async function get(postid) {
     };
 }
 
-/**
- * Add a new post
- * @param {Post} post
- * @returns {Promise<DataEnvelope<Post>>}
- */
+async function getByUser(userid) {
+    const userPosts = data.posts.filter((post) => post.userid === userid);
+    return {
+        isSuccess: true,
+        data: userPosts,
+        total: userPosts.length,
+    };
+}
+
 async function add(post) {
     post.postid = data.posts.reduce((prev, x) => (x.postid > prev ? x.postid : prev), 0) + 1;
     data.posts.push(post);
@@ -62,12 +44,6 @@ async function add(post) {
     };
 }
 
-/**
- * Update an existing post
- * @param {number} postid
- * @param {Post} updatedPost
- * @returns {Promise<DataEnvelope<Post>>}
- */
 async function update(postid, updatedPost) {
     const postIndex = data.posts.findIndex((item) => item.postid === postid);
     if (postIndex === -1)
@@ -80,11 +56,6 @@ async function update(postid, updatedPost) {
     };
 }
 
-/**
- * Remove a post
- * @param {number} postid
- * @returns {Promise<DataEnvelope<number>>}
- */
 async function remove(postid) {
     const postIndex = data.posts.findIndex((item) => item.postid === postid);
     if (postIndex === -1)
@@ -97,6 +68,7 @@ async function remove(postid) {
 module.exports = {
     getAll,
     get,
+    getByUser,
     add,
     update,
     remove,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getAll, type User } from '@/models/users'
+import { getAll, remove, type User } from '@/models/users'
 import { ref } from 'vue'
 import { useAuth } from '@/models/auth'
 
@@ -7,10 +7,19 @@ const { loggedInUser } = useAuth()
 const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 const isAdmin = ref<boolean>(loggedInUser.value?.isadmin || false)
 const users = ref<User[]>([])
-users.value = getAll().data
+getAll().then((data) => {
+  console.log(data)
+  users.value = data.data
+})
 
-function removeUser(username: string) {
-  users.value = users.value.filter((user) => user.username !== username)
+const handleRemove = async (userId: number) => {
+  try {
+    await remove(userId) // Call the API to remove the user
+    // Filter out the removed user from the users array
+    users.value = users.value.filter(user => user.userid !== userId)
+  } catch (error) {
+    console.error('Failed to remove user:', error)
+  }
 }
 </script>
 
@@ -30,16 +39,14 @@ function removeUser(username: string) {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users" :key="user.username">
+          <tr v-for="user in users" :key="user.userid">
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.isadmin }}</td>
             <td>
-              <button @click="removeUser(user.username)" class="button is-danger is-small">
-                Remove
-              </button>
+              <button @click="handleRemove(user.userid)" class="button is-danger is-small">Remove</button>
             </td>
           </tr>
         </tbody>

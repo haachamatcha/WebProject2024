@@ -1,4 +1,62 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import {type User, register, getAll} from '@/models/users'
+
+const first = ref<string>('')
+const last = ref<string>('')
+const username = ref<string>('')
+const email = ref<string>('')
+const password = ref<string>('')
+const confirmPassword = ref<string>('')
+
+const registerUser = async () => {
+  if (password.value !== confirmPassword.value || password.value === '') {
+    alert('Passwords do not match')
+    return
+  }
+  else if((await getAll()).data.some((user: User) => user.email === email.value)) {
+    alert('Email already in use')
+    return
+  }
+  else if((await getAll()).data.some((user: User) => user.username === username.value)) {
+    alert('Username already in use')
+    return
+  }
+
+  const newUser: User = {
+    firstname: first.value,
+    lastname: last.value,
+    username: username.value,
+    email: email.value,
+    password: password.value,
+    userid: (await getAll()).data.length + 1,
+    isadmin: false,
+    bio: '',
+    followers : 0,
+    following: 0,
+    posts: 0,
+    statsToday: {
+      maxlift: 0,
+      maxtime: 0,
+      maxdist: 0,
+      maxcal: 0,
+    },
+    statsAll: {
+      maxlift: 0,
+      maxtime: 0,
+      maxdist: 0,
+      maxcal: 0,
+    }
+  }
+
+  try {
+    await register(newUser)
+    alert('User registered successfully')
+  } catch (error) {
+    console.error('Failed to register user:', error)
+  }
+}
+</script>
 
 <template>
   <div class="section">
@@ -11,7 +69,7 @@
               <div class="field">
                 <label for="firstName" class="label">First Name</label>
                 <div class="control">
-                  <input type="text" id="firstName" class="input" />
+                  <input type="text" id="firstName" class="input" v-model="first"/>
                 </div>
               </div>
             </div>
@@ -19,7 +77,7 @@
               <div class="field">
                 <label for="lastName" class="label">Last Name</label>
                 <div class="control">
-                  <input type="text" id="lastName" class="input" />
+                  <input type="text" id="lastName" class="input" v-model="last"/>
                 </div>
               </div>
             </div>
@@ -27,34 +85,34 @@
           <label for="username" class="label">Username</label>
           <div class="field">
             <div class="control">
-              <input type="text" id="username" class="input" />
+              <input type="text" id="username" class="input" v-model="username"/>
             </div>
           </div>
             <div class="field">
                 <label for="email" class="label">Email</label>
                 <div class="control">
-                <input type="email" id="email" class="input" />
+                <input type="email" id="email" class="input" v-model="email"/>
                 </div>
             </div>
           <div class="field">
             <label for="password" class="label">Password</label>
             <div class="control">
-              <input type="password" id="password" class="input" />
+              <input type="password" id="password" class="input" v-model="password"/>
             </div>
           </div>
           <div class="field">
             <label for="confirmPassword" class="label">Confirm Password</label>
             <div class="control">
-              <input type="password" id="confirmPassword" class="input" />
+              <input type="password" id="confirmPassword" class="input" v-model="confirmPassword"/>
             </div>
           </div>
           <div class="field has-text-centered">
-            <button class="button is-primary">
+            <RouterLink to="login" class="button is-primary" @click.prevent="registerUser">
               <span class="icon">
                 <i class="fas fa-user-plus"></i>
               </span>
               &ensp; Register
-            </button>
+            </RouterLink>
           </div>
         </form>
 

@@ -26,6 +26,13 @@ app.get("/:postid", (req, res, next) => {
         .catch(next);
 });
 
+app.get("/user/:userid", (req, res, next) => {
+    const userid = req.params.userid;
+    model
+        .getByUser(+userid)
+        .then((posts) => res.send(posts))
+        .catch(next);
+});
 // Add a new post
 app.post("/", (req, res, next) => {
     model

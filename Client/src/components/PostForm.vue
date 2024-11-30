@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { type Post, addPost } from '../models/posts'
+import { type Post, create } from '../models/posts'
 import { useAuth } from '../models/auth'
+import dayjs from 'dayjs'
 
 const caption = ref<string>('')
-const postType = ref<string>('Post Type')
+const postType = ref<string>('')
 const isModalActive = ref<boolean>(false)
 const calories = ref<number>(0)
 const record = ref<number>(0)
@@ -31,15 +32,15 @@ const submitPost = () => {
     postType: postType.value,
     record: record.value,
     unit: unit.value,
-    date: new Date().toISOString(),
+    date: dayjs().format('DD MMMM YYYY'),
     caption: caption.value,
     calories: calories.value,
-    photo: "generic",
+    photo: 'generic',
     postid: 0,
-    userid: loggedInUser.value.userid,
+    userid: loggedInUser.value.userid
   }
 
-  addPost(newPost)
+  create(newPost)
   router.push('/')
   isModalActive.value = false
 }
@@ -50,7 +51,6 @@ const cancelPost = () => {
 }
 
 const { loggedInUser } = useAuth()
-//const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 </script>
 
 <template>
@@ -68,20 +68,23 @@ const { loggedInUser } = useAuth()
           <div class="field">
             <div class="control">
               <label for="title" class="label has-text-white">Caption</label>
-              <input type="text" id="title" class="input" v-model="caption" placeholder="Enter a caption" />
+              <input
+                type="text"
+                id="title"
+                class="input"
+                v-model="caption"
+                placeholder="Enter a caption"
+              />
             </div>
           </div>
 
           <div class="field">
-            <div class="control">
-              <label for="postType" class="label has-text-white">Exercise Type</label>
-              <div class="select">
-                <select id="postType" v-model="postType">
-                  <option disabled value="">Select Exercise Type</option>
-                  <option value="Cardio">Cardio</option>
-                  <option value="Strength">Strength</option>
-                </select>
-              </div>
+            <div class="select">
+              <select id="postType" v-model="postType">
+                <option disabled value="">Select Exercise Type</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Strength">Strength</option>
+              </select>
             </div>
           </div>
 
@@ -89,13 +92,23 @@ const { loggedInUser } = useAuth()
             <div class="field">
               <label class="label has-text-white">Calories Burned</label>
               <div class="control">
-                <input type="number" class="input" v-model="calories" placeholder="Enter calories burned" />
+                <input
+                  type="number"
+                  class="input"
+                  v-model="calories"
+                  placeholder="Enter calories burned"
+                />
               </div>
             </div>
             <div class="field">
               <label class="label has-text-white">Record</label>
               <div class="control">
-                <input type="number" class="input" v-model="record" placeholder="Enter duration or distance" />
+                <input
+                  type="number"
+                  class="input"
+                  v-model="record"
+                  placeholder="Enter duration or distance"
+                />
               </div>
             </div>
             <div class="field">
@@ -114,13 +127,23 @@ const { loggedInUser } = useAuth()
             <div class="field">
               <label class="label has-text-white">Calories Burned</label>
               <div class="control">
-                <input type="number" class="input" v-model="calories" placeholder="Enter calories burned" />
+                <input
+                  type="number"
+                  class="input"
+                  v-model="calories"
+                  placeholder="Enter calories burned"
+                />
               </div>
             </div>
             <div class="field">
               <label class="label has-text-white">Weight</label>
               <div class="control">
-                <input type="number" class="input" v-model="record" placeholder="Enter weight lifted" />
+                <input
+                  type="number"
+                  class="input"
+                  v-model="record"
+                  placeholder="Enter weight lifted"
+                />
               </div>
             </div>
             <div class="field">
