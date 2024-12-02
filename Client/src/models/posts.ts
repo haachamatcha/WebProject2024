@@ -28,6 +28,8 @@ export function remove(id: number) {
 }
 
 export interface Post {
+  postid: number
+  userid: number
   firstName: string
   lastName: string
   username: string
@@ -38,8 +40,6 @@ export interface Post {
   date: string
   caption: string
   photo: string
-  postid: number
-  userid: number
 }
 
 const postList = ref<Post[]>(data.posts)
