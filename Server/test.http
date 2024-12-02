@@ -1,4 +1,10 @@
+GET http://localhost:3000/api/v1/posts/
+
+###
 GET http://localhost:3000/api/v1/posts/1
+###
+
+GET http://localhost:3000/api/v1/posts/userid/1
 ###
 DELETE http://localhost:3000/api/v1/posts/1
 ###
@@ -16,12 +22,11 @@ Content-Type: application/json
       "unit" : "Minutes",
       "caption": "Test",
       "photo" : "../assets/genericphoto.jpg",
-      "postid" : 12,
       "userid": 1
 }
 
 ###
-PATCH http://localhost:3000/api/v1/posts/12
+PATCH http://localhost:3000/api/v1/posts/1
 Content-Type: application/json
 
 {
@@ -31,11 +36,11 @@ Content-Type: application/json
       "postType": "Cardio",
       "calories": 110,
       "date": "1 January 2020",
-      "record": 100,
+      "record": 200,
       "unit" : "Minutes",
       "caption": "Test 3",
       "photo" : "../assets/genericphoto.jpg",
-      "postid" : 12,
+      "postid" : 2,
       "userid": 1
 }
 ###
