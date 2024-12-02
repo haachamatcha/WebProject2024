@@ -13,31 +13,6 @@
       "posts": 1
     },
     {
-      "firstname": "John",
-      "lastname": "Doe",
-      "email": "jdoe@example.com",
-      "username": "jdoe",
-      "password": "jd",
-      "isadmin": false,
-      "bio": "I am John Doe",
-      "followers": 123,
-      "following": 321,
-      "posts": 0
-    },
-    {
-      "firstname": "Jane",
-      "lastname": "Doe",
-      "email": "janedoe@example.com",
-      "username": "doejane",
-      "password": "jd",
-      "isadmin": false,
-      "bio": "I am Jane Doe",
-      "followers": 123,
-      "following": 321,
-      "posts": 0
-    },
-
-    {
       "firstname": "Mark",
       "lastname": "Borja",
       "email": "mb@email.com",

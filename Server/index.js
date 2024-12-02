@@ -20,9 +20,6 @@ app.use(express.static(__dirname + "/dist"));
 app.get("/", (req, res, next) => {
     res.send("Hello World");
 })
-    /*.get("/about", (req, res, next) => {
-        res.send("About Us");
-    })*/
     .use("/api/v1/users", userController)
     .use("/api/v1/posts", postController)
 

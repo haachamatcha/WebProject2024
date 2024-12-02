@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import {type User, register, getAll} from '@/models/users'
+import {type User, add, getAll} from '@/models/users'
 
 const first = ref<string>('')
 const last = ref<string>('')
@@ -34,23 +34,11 @@ const registerUser = async () => {
     bio: '',
     followers : 0,
     following: 0,
-    posts: 0,
-    statsToday: {
-      maxlift: 0,
-      maxtime: 0,
-      maxdist: 0,
-      maxcal: 0,
-    },
-    statsAll: {
-      maxlift: 0,
-      maxtime: 0,
-      maxdist: 0,
-      maxcal: 0,
-    }
+    posts: 0
   }
 
   try {
-    await register(newUser)
+    await add(newUser)
     alert('User registered successfully')
   } catch (error) {
     console.error('Failed to register user:', error)
@@ -69,7 +57,7 @@ const registerUser = async () => {
               <div class="field">
                 <label for="firstName" class="label">First Name</label>
                 <div class="control">
-                  <input type="text" id="firstName" class="input" v-model="first"/>
+                  <input type="text" id="firstname" class="input" v-model="first"/>
                 </div>
               </div>
             </div>
@@ -77,7 +65,7 @@ const registerUser = async () => {
               <div class="field">
                 <label for="lastName" class="label">Last Name</label>
                 <div class="control">
-                  <input type="text" id="lastName" class="input" v-model="last"/>
+                  <input type="text" id="lastname" class="input" v-model="last"/>
                 </div>
               </div>
             </div>
@@ -107,12 +95,12 @@ const registerUser = async () => {
             </div>
           </div>
           <div class="field has-text-centered">
-            <RouterLink to="login" class="button is-primary" @click.prevent="registerUser">
+            <button class="button is-primary" @click.prevent="registerUser">
               <span class="icon">
                 <i class="fas fa-user-plus"></i>
               </span>
               &ensp; Register
-            </RouterLink>
+            </button>
           </div>
         </form>
 

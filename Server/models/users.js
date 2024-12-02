@@ -32,8 +32,8 @@ async function add(user) {
     .from("users")
     .insert([
       {
-        firstName: user.firstName,
-        lastName: user.lastName,
+        firstname: user.firstname,
+        lastname: user.lastname,
         email: user.email,
         username: user.username,
         password: user.password,
@@ -68,7 +68,7 @@ async function update(id, user) {
         posts: user.posts,
     })
     .eq("userid", id)
-    select("*")
+    .select("*")
     .single()
   return {
     isSuccess: !error,

@@ -31,7 +31,7 @@ export async function get(id: number) {
   return api<DataEnvelope<User>>(`users/${id}`)
 }
 
-export async function register(user: User) {
+export async function add(user: User) {
   return api<DataEnvelope<User>>('users', user)
 }
 
