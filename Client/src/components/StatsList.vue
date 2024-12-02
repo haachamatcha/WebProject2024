@@ -10,7 +10,7 @@ const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 <template>
   <div class="container has-gap" v-if="isLoggedIn">
     <div class="columns">
-      <div class="column is-one-third">
+      <div class="column is-half">
         <div class="box has-background-dark">
           <p class="has-text-centered has-text-primary">Today</p>
           <div class="content">
@@ -25,22 +25,7 @@ const isLoggedIn = ref<boolean>(!!loggedInUser.value)
           </div>
         </div>
       </div>
-      <div class="column is-one-third">
-        <div class="box has-background-dark">
-          <p class="has-text-centered has-text-primary">This Week</p>
-          <div class="content">
-            <h1 class="has-text-centered value">{{ loggedInUser?.statsWeek?.maxlift }} lbs</h1>
-            <p class="label has-text-centered has-text-primary">Maximum Lift</p>
-            <h1 class="has-text-centered value">{{ loggedInUser?.statsWeek?.maxtime }} hrs</h1>
-            <p class="label has-text-centered has-text-primary">Workout Time</p>
-            <h1 class="has-text-centered value">{{loggedInUser?.statsWeek?.maxdist}} m</h1>
-            <p class="label has-text-centered has-text-primary">Distance</p>
-            <h1 class="has-text-centered value">{{loggedInUser?.statsWeek?.maxcal}}</h1>
-            <p class="label has-text-centered has-text-primary">Calories Burned</p>
-          </div>
-        </div>
-      </div>
-      <div class="column is-one-third">
+      <div class="column is-half">
         <div class="box has-background-dark">
           <p class="has-text-centered has-text-primary">All Time</p>
           <div class="content">
