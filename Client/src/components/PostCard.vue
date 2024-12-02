@@ -29,7 +29,7 @@ const handleSubmitComment = () => submitComment(newComment, comments);
         {{ post.firstName }} {{ post.lastName }}
         <small>@{{ post.username }} &nbsp; {{ post.date }}</small>
       </p>
-      <p>{{ post.caption }}</p>
+      <p class="has-text-white bold">{{ post.caption }}</p>
       <div class="columns">
         <div class="column">
           <h3 class="is-3">{{ post.postType }}</h3>
