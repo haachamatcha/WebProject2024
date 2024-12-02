@@ -1,56 +1,106 @@
 const data = require("../data/users.json");
+const { getConnection } = require("./supabase");
+const conn = getConnection();
 
-async function getAllUsers() {
+async function getAll() {
+  const { data, error, count } = await conn
+  .from("users")
+  .select("*", { count: "estimated" })
   return {
-    isSuccess: true,
-    data: data.users,
-    total: data.users.length,
+    isSuccess: !error,
+    message: error?.message,
+    data: data,
+    total: count,
   };
 }
 
-async function getUser(id) {
-  const user = data.users.find((user) => user.userid == id);
+async function get(id) {
+  const { data, error } = await conn
+    .from("users")
+    .select("*")
+    .eq("userid", id)
+    .single()
   return {
-    isSuccess: !!user,
-    data: user,
+    isSuccess: !error,
+    message: error?.message,
+    data: data,
   };
 }
 
-async function addUser(user) {
-  user.userid = data.users.reduce((prev, x) => (x.userid > prev ? x.userid : prev), 0) + 1;
-  data.users.push(user);
+async function add(user) {
+  const { data, error } = await conn
+    .from("users")
+    .insert([
+      {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        username: user.username,
+        password: user.password,
+        isadmin: user.isadmin,
+        bio: user.bio,
+        followers: user.followers,
+        following: user.following,
+        posts: user.posts,
+      },
+    ])
+    .single()
   return {
-    isSuccess: true,
-    data: user,
+    isSuccess: !error,
+    message: error?.message,
+    data: data,
   };
 }
 
-async function updateUser(id, user) {
-  const toUpdate = getUser(id);
-  Object.assign(toUpdate, user);
+async function update(id, user) {
+  const { data, error } = await conn
+    .from("users")
+    .update({
+      firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        username: user.username,
+        password: user.password,
+        isadmin: user.isadmin,
+        bio: user.bio,
+        followers: user.followers,
+        following: user.following,
+        posts: user.posts,
+    })
+    .eq("userid", id)
+    select("*")
+    .single()
   return {
-    isSuccess: true,
-    data: toUpdate,
+    isSuccess: !error,
+    message: error?.message,
+    data: data,
   };
 }
 
-async function deleteUser(id) {
-  const userIndex = data.users.findIndex((user) => user.userid == id);
-  if (userIndex === -1)
-    throw {
-      isSuccess: false,
-      message: "User not found",
-      data: id,
-      status: 404,
-    };
-  data.users.splice(userIndex, 1);
-  return { isSuccess: true, message: "User deleted", data: id };
+async function remove(id) {
+  const { error } = await conn
+    .from("users")
+    .delete()
+    .eq("userid", id)
+    .select("*")
+    .single()
+  return {
+    isSuccess: !error,
+    message: error?.message,
+  };
+}
+
+async function seed(){
+  for (const user of data.users) {
+    await add(user)
+  }
 }
 
 module.exports = {
-  getAllUsers,
-  getUser,
-  addUser,
-  updateUser,
-  deleteUser,
+  getAll,
+  get,
+  add,
+  update,
+  remove,
+  seed
 };

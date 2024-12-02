@@ -18,7 +18,8 @@ async function get(postid) {
   const { data, error } = await conn
     .from("posts")
     .select("*")
-    .eq("postid", postid);
+    .eq("postid", postid)
+    .single()
   return {
     isSuccess: !error,
     message: error?.message,
@@ -26,14 +27,6 @@ async function get(postid) {
   };
 }
 
-/*async function getByUser(userid) {
-    const userPosts = data.posts.filter((post) => post.userid === userid);
-    return {
-        isSuccess: true,
-        data: userPosts,
-        total: userPosts.length,
-    };
-}*/
 async function getByUser(userid) {
   const { data, error, count } = await conn
     .from("posts")
@@ -80,17 +73,6 @@ async function seed(){
     }
 }
 
-/*async function update(postid, updatedPost) {
-  const postIndex = data.posts.findIndex((item) => item.postid === postid);
-  if (postIndex === -1)
-    throw { isSuccess: false, message: "Post not found", data: postid };
-
-  Object.assign(data.posts[postIndex], updatedPost);
-  return {
-    isSuccess: true,
-    data: data.posts[postIndex],
-  };
-}*/
 async function update(postid, updatedPost) {
   const { data, error } = await conn
     .from("posts")
@@ -118,12 +100,17 @@ async function update(postid, updatedPost) {
 }
 
 async function remove(postid) {
-  const postIndex = data.posts.findIndex((item) => item.postid === postid);
-  if (postIndex === -1)
-    throw { isSuccess: false, message: "Post not found", data: postid };
-
-  data.posts.splice(postIndex, 1);
-  return { isSuccess: true, message: "Post deleted", data: postid };
+  const { data, error } = await conn
+    .from("posts")
+    .delete()
+    .eq("postid", postid)
+    .select("*")
+    .single();
+  return {
+    isSuccess: !error,
+    message: error?.message,
+    data: data,
+  };
 }
 
 module.exports = {
@@ -133,4 +120,5 @@ module.exports = {
   add,
   update,
   remove,
+  seed
 };

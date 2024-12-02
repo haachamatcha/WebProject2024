@@ -4,7 +4,7 @@ const app = express.Router();
 
 app.get("/", (req, rest, next) => {
     model
-    .getAllUsers()
+    .getAll()
     .then((x) => rest.send(x))
     .catch(next);
 })
@@ -12,22 +12,30 @@ app.get("/", (req, rest, next) => {
 .get("/:id", (req, rest, next) => {
     const id = req.params.id;
     model
-    .getUser(id)
+    .get(id)
     .then((x) => rest.send(x))
     .catch(next);
 })
 
 .post("/", (req, rest, next) => {
     model
-    .addUser(req.body)
+    .add(req.body)
     .then((x) => rest.send(x))
     .catch(next);
 })
 
+.post("/seed", (req, rest, next) => {
+    model
+    .seed()
+    .then((x) => rest.send(x))
+    .catch(next);
+}
+)
+
 .patch("/:id", (req, rest, next) => {
     const id = req.params.id;
     model
-    .updateUser(+id, req.body)
+    .update(+id, req.body)
     .then((x) => rest.send(x))
     .catch(next);
 })
@@ -35,7 +43,7 @@ app.get("/", (req, rest, next) => {
 .delete("/:id", (req, rest, next) => {
     const id = req.params.id;
     model
-    .deleteUser(+id)
+    .remove(+id)
     .then((x) => rest.send(x))
     .catch(next);
 })

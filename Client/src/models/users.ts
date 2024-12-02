@@ -44,28 +44,16 @@ export async function remove(id: number) {
 }
 
 export interface User {
+  userid: number;
   firstname: string;
   lastname: string;
   username: string;
   email: string;
   password: string;
-  userid: number;
   isadmin: boolean;
   bio:string;
   followers: number;
   following: number;
   posts: number;
-  statsToday?: {
-    maxlift: number;
-    maxtime: number;
-    maxdist: number;
-    maxcal: number;
-  }
-  statsAll: {
-    maxlift: number;
-    maxtime: number;
-    maxdist: number;
-    maxcal: number;
-  }
 }
 
