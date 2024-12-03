@@ -8,22 +8,7 @@
       "password": "password",
       "userid": 1,
       "isadmin": true,
-      "bio": "I am the admin user",
-      "followers": 0,
-      "following": 0,
-      "posts": 1,
-      "statsToday": {
-        "maxlift": 200,
-        "maxtime": "2:00",
-        "maxdist": 5,
-        "maxcal": 500
-      },
-      "statsAll": {
-        "maxlift": 250,
-        "maxtime": "10:00",
-        "maxdist": 30,
-        "maxcal": 5000
-      }
+      "bio": "I am the admin user"
     },
     {
       "firstname": "John",
@@ -33,23 +18,7 @@
       "password": "jd",
       "userid" : 2,
       "isadmin": false,
-      "bio": "I am John Doe",
-      "followers": 123,
-      "following": 321,
-      "posts": 0,
-      "statsToday": {
-        "maxlift": 200,
-        "maxtime": "2:00",
-        "maxdist": 5,
-        "maxcal": 500
-      },
-      "statsAll": {
-        "maxlift": 250,
-        "maxtime": "10:00",
-        "maxdist": 30,
-        "maxcal": 5000
-      }
-      
+      "bio": "I am John Doe"
     },
     {
       "firstname": "Jane",
@@ -59,22 +28,7 @@
       "password": "jd",
       "userid" : 3,
       "isadmin": false,
-      "bio": "I am Jane Doe",
-      "followers": 123,
-      "following": 321,
-      "posts": 0,
-      "statsToday": {
-        "maxlift": 200,
-        "maxtime": "2:00",
-        "maxdist": 5,
-        "maxcal": 500
-      },
-      "statsAll": {
-        "maxlift": 250,
-        "maxtime": "10:00",
-        "maxdist": 30,
-        "maxcal": 5000
-      }
+      "bio": "I am Jane Doe"
     },
 
     {
@@ -85,22 +39,7 @@
       "password": "mb",
       "userid" : 4,
       "isadmin": false,
-      "bio": "Lazy",
-      "followers": 123,
-      "following": 321,
-      "posts": 0,
-      "statsToday": {
-        "maxlift": 200,
-        "maxtime": "2:00",
-        "maxdist": 5,
-        "maxcal": 500
-      },
-      "statsAll": {
-        "maxlift": 250,
-        "maxtime": "10:00",
-        "maxdist": 30,
-        "maxcal": 5000
-      }
+      "bio": "Lazy"
     }
   ]
 }

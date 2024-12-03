@@ -117,4 +117,10 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/api/v1/users/seed
+PATCH  http://localhost:3000/api/v1/stats/1
+Content-Type: application/json
+
+{
+      "userid":1,
+      "today_lift": 110
+}

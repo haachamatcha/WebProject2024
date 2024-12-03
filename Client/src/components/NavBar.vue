@@ -48,13 +48,13 @@ const handleLogout = () => {
           <span class="icon">
             <i class="fas fa-running"></i>
           </span>
-          My Activity
+          Activity Dashboard
         </RouterLink>
         <RouterLink to="/progress" class="navbar-item">
           <span class="icon">
             <i class="fas fa-signal"></i>
           </span>
-          My Progress
+          Progress
         </RouterLink>
         <RouterLink to="/search" class="navbar-item">
           <span class="icon">

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const userController = require("./controllers/users");
 const postController = require("./controllers/posts");
+const statController = require("./controllers/stats");
 
 const PORT = 3000;
 
@@ -22,6 +23,7 @@ app.get("/", (req, res, next) => {
 })
     .use("/api/v1/users", userController)
     .use("/api/v1/posts", postController)
+    .use("/api/v1/stats", statController)
 
     .get("*", (req, res, next) => {
         res.sendFile(__dirname + "/dist/index.html");

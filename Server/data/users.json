@@ -7,10 +7,7 @@
       "username": "admin",
       "password": "password",
       "isadmin": true,
-      "bio": "I am the admin user",
-      "followers": 0,
-      "following": 0,
-      "posts": 1
+      "bio": "I am the admin user"
     },
     {
       "firstname": "Mark",
@@ -19,10 +16,7 @@
       "username": "markborja",
       "password": "mb",
       "isadmin": false,
-      "bio": "Lazy",
-      "followers": 123,
-      "following": 321,
-      "posts": 0
+      "bio": "Lazy"
     }
   ]
 }

@@ -52,8 +52,5 @@ export interface User {
   password: string;
   isadmin: boolean;
   bio:string;
-  followers: number;
-  following: number;
-  posts: number;
 }
 

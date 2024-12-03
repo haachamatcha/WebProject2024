@@ -1,4 +1,5 @@
 const data = require("../data/users.json");
+const bcrypt = require("bcrypt");
 const { getConnection } = require("./supabase");
 const conn = getConnection();
 
@@ -27,6 +28,20 @@ async function get(id) {
   };
 }
 
+async function login(username, password) {
+  const { data, error } = await conn
+    .from("users")
+    .select("*")
+    .eq("username", username)
+    .eq("password", password)
+    .single()
+  return {
+    isSuccess: !error,
+    message: error?.message,
+    data: data,
+  };
+}
+
 async function add(user) {
   const { data, error } = await conn
     .from("users")
@@ -39,9 +54,6 @@ async function add(user) {
         password: user.password,
         isadmin: user.isadmin,
         bio: user.bio,
-        followers: user.followers,
-        following: user.following,
-        posts: user.posts,
       },
     ])
     .single()
@@ -63,9 +75,6 @@ async function update(id, user) {
         password: user.password,
         isadmin: user.isadmin,
         bio: user.bio,
-        followers: user.followers,
-        following: user.following,
-        posts: user.posts,
     })
     .eq("userid", id)
     .select("*")
@@ -90,17 +99,11 @@ async function remove(id) {
   };
 }
 
-async function seed(){
-  for (const user of data.users) {
-    await add(user)
-  }
-}
-
 module.exports = {
   getAll,
   get,
   add,
   update,
   remove,
-  seed
+  login
 };
