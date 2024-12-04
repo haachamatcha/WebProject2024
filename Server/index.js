@@ -3,6 +3,7 @@ const app = express();
 const userController = require("./controllers/users");
 const postController = require("./controllers/posts");
 const statController = require("./controllers/stats");
+const { parseToken, requireAdmin } = require("./middleware/auth");
 
 const PORT = 3000;
 
@@ -21,6 +22,7 @@ app.use(express.static(__dirname + "/dist"));
 app.get("/", (req, res, next) => {
     res.send("Hello World");
 })
+    .use(parseToken)
     .use("/api/v1/users", userController)
     .use("/api/v1/posts", postController)
     .use("/api/v1/stats", statController)

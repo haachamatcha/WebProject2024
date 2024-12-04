@@ -21,7 +21,6 @@ Content-Type: application/json
       "record": 100,
       "unit" : "Minutes",
       "caption": "Test",
-      "photo" : "../assets/genericphoto.jpg",
       "userid": 1
 }
 

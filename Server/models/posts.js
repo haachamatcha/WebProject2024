@@ -54,8 +54,7 @@ async function add(post) {
         record: post.record,
         unit: post.unit,
         date: post.date,
-        caption: post.caption,
-        image: post.image,
+        caption: post.caption
       },
     ])
     .select("*")
@@ -87,7 +86,6 @@ async function update(postid, updatedPost) {
       unit: updatedPost.unit,
       date: updatedPost.date,
       caption: updatedPost.caption,
-      image: updatedPost.image,
     })
     .eq("postid", postid)
     .select("*")

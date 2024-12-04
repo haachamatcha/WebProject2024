@@ -1,14 +1,19 @@
 import { ref } from 'vue';
-import data from '../data/users.json';
 import type { DataListEnvelope, DataEnvelope } from './dataEnvelope';
+import data from '../data/users.json';
 import { api } from './myFetch';
 export const currentUser = ref<User | null>(null);
 
-/*export function getAll(): DataListEnvelope<User> {
-  return {
-    data: data.users,
-    total: data.users.length,
-  };
+export async function getAll() {
+  return api<DataListEnvelope<User>>('users')
+}
+
+export async function get(id: number) {
+  return api<DataEnvelope<User>>(`users/${id}`)
+}
+
+/*export async function login(email: string, password: string) {
+  return api<DataEnvelope<User>>('users/login', { email, password })
 }*/
 
 export function login(email: string, password: string): User | undefined {
@@ -21,14 +26,6 @@ export function login(email: string, password: string): User | undefined {
 
 export function logout(): void {
   currentUser.value = null; 
-}
-
-export async function getAll() {
-  return api<DataListEnvelope<User>>('users')
-}
-
-export async function get(id: number) {
-  return api<DataEnvelope<User>>(`users/${id}`)
 }
 
 export async function add(user: User) {
@@ -53,4 +50,3 @@ export interface User {
   isadmin: boolean;
   bio:string;
 }
-
