@@ -2,45 +2,50 @@ const model = require('../models/users');
 const express = require('express');
 const app = express.Router();
 
-app.get("/", async (req, res, next) => {
-  try {
-    const result = await model.getAll();
-    res.json(result);
-  } catch (error) {
-    next(error);
-  }
+app.get("/", (req, rest, next) => {
+    model
+    .getAll()
+    .then((x) => rest.send(x))
+    .catch(next);
 })
-.get("/:id", async (req, res, next) => {
-  try {
-    const result = await model.get(req.params.id);
-    res.json(result);
-  } catch (error) {
-    next(error);
-  }
+
+.get("/:id", (req, rest, next) => {
+    const id = req.params.id;
+    model
+    .get(id)
+    .then((x) => rest.send(x))
+    .catch(next);
 })
-.post("/", async (req, res, next) => {
-  try {
-    const result = await model.add(req.body);
-    res.json(result);
-  } catch (error) {
-    next(error);
-  }
+
+.post("/", (req, rest, next) => {
+    model
+    .add(req.body)
+    .then((x) => rest.send(x))
+    .catch(next);
 })
-.patch("/:id", async (req, res, next) => {
-  try {
-    const result = await model.update(req.params.id, req.body);
-    res.json(result);
-  } catch (error) {
-    next(error);
-  }
+
+.post("/seed", (req, rest, next) => {
+    model
+    .seed()
+    .then((x) => rest.send(x))
+    .catch(next);
+}
+)
+
+.patch("/:id", (req, rest, next) => {
+    const id = req.params.id;
+    model
+    .update(+id, req.body)
+    .then((x) => rest.send(x))
+    .catch(next);
 })
-.delete("/:id", async (req, res, next) => {
-  try {
-    const result = await model.remove(req.params.id);
-    res.json(result);
-  } catch (error) {
-    next(error);
-  }
-});
+
+.delete("/:id", (req, rest, next) => {
+    const id = req.params.id;
+    model
+    .remove(+id)
+    .then((x) => rest.send(x))
+    .catch(next);
+})
 
 module.exports = app;
