@@ -1,7 +1,7 @@
 const data = require("../data/users.json");
-const bcrypt = require("bcrypt");
 const { getConnection } = require("./supabase");
 const conn = getConnection();
+const jwt = require("jsonwebtoken");
 
 async function getAll() {
   const { data, error, count } = await conn
@@ -28,17 +28,31 @@ async function get(id) {
   };
 }
 
-async function login(username, password) {
+async function login(email, password) {
+  console.log(`Attempting login for email: ${email}`);
   const { data, error } = await conn
     .from("users")
     .select("*")
-    .eq("username", username)
+    .eq("email", email)
     .eq("password", password)
-    .single()
+    .single();
+  
+  if (error) {
+    console.error(`Login error: ${error.message}`);
+    return {
+      isSuccess: false,
+      message: error.message,
+      data: null,
+      token: null
+    };
+  }
+
+  const token = await createToken(data, 3600000);
+  console.log(`Login successful for email: ${email}, token: ${token}`);
   return {
-    isSuccess: !error,
-    message: error?.message,
-    data: data,
+    isSuccess: true,
+    message: "Login successful",
+    data: { user: data, token: token }
   };
 }
 
@@ -84,7 +98,7 @@ async function update(id, user) {
     message: error?.message,
     data: data,
   };
-}
+} 
 
 async function remove(id) {
   const { error } = await conn
@@ -99,11 +113,38 @@ async function remove(id) {
   };
 }
 
+async function createToken(user, expiresIn) {
+  return new Promise((resolve, reject) => {
+      jwt.sign({ userid: user.userid, email: user.email }, process.env.JWT_SECRET ?? "", { expiresIn }, (err, token) => {
+          if (err) {
+              reject(err);
+          } else {
+              resolve(token);
+          }
+      });
+  });
+}
+
+async function verifyToken(token) {
+  return new Promise((resolve, reject) => {
+      jwt.verify(token, process.env.JWT_SECRET ?? "", (err, user) => {
+          if (err) {
+              reject(err);
+          } else {
+              resolve(user);
+          }
+      });
+  });
+}
+
+
 module.exports = {
   getAll,
   get,
   add,
   update,
   remove,
-  login
+  login,
+  createToken,
+  verifyToken,
 };

@@ -1,25 +1,26 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'; 
-import { login } from '../models/users'; 
-import { useAuth } from '../models/auth';
+import { useLogin } from '../models/session';
 
 const email = ref('');
 const password = ref('');
 const errorMessage = ref('');
 const router = useRouter();
-const { loginUser } = useAuth(); 
+const { login } = useLogin();
 
-
-const handleLogin = (e: Event) => {
+const handleLogin = async (e: Event) => {
   e.preventDefault();
-  const user = login(email.value, password.value);
-
-  if (user) {
-    loginUser(user);
-    router.push({ name: '/' });
-  } else {
-    errorMessage.value = 'Invalid email or password.';
+  try {
+    const success = await login(email.value, password.value);
+    if (success) {
+      router.push({ name: '/' });
+    } else {
+      errorMessage.value = 'Invalid email or password.';
+    }
+  } catch (error) {
+    errorMessage.value = 'An error occurred during login.';
+    console.error('Login failed:', error);
   }
 };
 </script>

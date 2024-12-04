@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useAuth } from '@/models/auth'
-import { ref } from 'vue'
+import { refSession } from '@/models/session';
+import { ref } from 'vue';
+const session = refSession();
+const isLoggedIn = ref<boolean>(!!session.user);
 
-const { loggedInUser } = useAuth()
-
-const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 </script>
 
 <template>
@@ -17,15 +16,15 @@ const isLoggedIn = ref<boolean>(!!loggedInUser.value)
       <div class="container has-gap columns is-centered">
         <div class="content">
           <h3 class="bold has-text-centered">
-            {{ loggedInUser?.firstname }} {{ loggedInUser?.lastname }}
+            {{ session.user?.firstname }} {{ session.user?.lastname }}
           </h3>
-          <h6 class="has-text-primary has-text-centered">@{{ loggedInUser?.username }}</h6>
+          <h6 class="has-text-primary has-text-centered">@{{ session.user?.username }}</h6>
         </div>
       </div>
       <div class="columns">
         <div class="column">
           <p class="has-text-centered">
-            {{ loggedInUser?.bio }}
+            {{ session.user?.bio }}
           </p>
         </div>
       </div>

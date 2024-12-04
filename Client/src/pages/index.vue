@@ -4,8 +4,8 @@ import PostCard from '@/components/PostCard.vue';
 import { ref } from 'vue';
 
 import { getAll, type Post } from '@/models/posts';
-import { useAuth } from '../models/auth';
 import WelcomeHero from '@/components/WelcomeHero.vue';
+import { refSession } from '@/models/session';
 
 const posts = ref<Post[]>([]);
 getAll().then((data) => {
@@ -13,17 +13,17 @@ getAll().then((data) => {
   posts.value = data.data;
 });
 
-const { loggedInUser } = useAuth();
+const session = refSession();
 
 </script>
 
 <template>
   <main>
-    <div v-if="loggedInUser">
+    <div v-if="session.user">
       <div class="container has-gap">
 
         <h1 class="title has-text-centered">
-          Welcome, {{ loggedInUser.firstname }}
+          Welcome, {{ session.user.username }}!
         </h1>
         <h1 class="title has-text-centered">
           <span class="icon is-large">

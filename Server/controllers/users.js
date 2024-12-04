@@ -32,6 +32,22 @@ app.get("/", (req, rest, next) => {
 }
 )
 
+.post("/login", async (req, rest, next) => {
+    try {
+        const { email, password } = req.body;
+        const response = await model.login(email, password);
+        if (response.isSuccess) {
+            req.session.user = response.data.user;
+            req.session.token = response.data.token;
+            rest.send(response);
+        } else {
+            rest.status(401).send(response.message);
+        }
+    } catch (error) {
+        next(error);
+    }
+})
+
 .patch("/:id", (req, rest, next) => {
     const id = req.params.id;
     model

@@ -1,14 +1,15 @@
-
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
-import { useAuth } from '../models/auth'
+import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
+import { useLogin, refSession } from '../models/session';
 
-const isOpen = ref(false)
-const { loggedInUser, logoutUser } = useAuth()
+const isOpen = ref(false);
+const { logout } = useLogin();
+const session = refSession();
+
 const handleLogout = () => {
-  logoutUser()
-}
+  logout();
+};
 </script>
 
 <template>
@@ -68,8 +69,8 @@ const handleLogout = () => {
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-              <RouterLink v-if="!loggedInUser" to="/login" class="navbar-item has-text-primary">Login</RouterLink>
-              <RouterLink v-if="!loggedInUser" to="/register" class="has-text-primary">Register</RouterLink>
+              <RouterLink v-if="!session.user" to="/login" class="navbar-item has-text-primary">Login</RouterLink>
+              <RouterLink v-if="!session.user" to="/register" class="has-text-primary">Register</RouterLink>
               <button v-else class="button is-light" @click="handleLogout">Logout</button>
             <RouterLink to="/admin" class="navbar-item has-text-primary">Admin</RouterLink>
             <RouterLink to="/about" class="navbar-item has-text-primary">About</RouterLink>

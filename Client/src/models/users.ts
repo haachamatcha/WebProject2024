@@ -1,6 +1,5 @@
 import { ref } from 'vue';
 import type { DataListEnvelope, DataEnvelope } from './dataEnvelope';
-import data from '../data/users.json';
 import { api } from './myFetch';
 export const currentUser = ref<User | null>(null);
 
@@ -12,16 +11,19 @@ export async function get(id: number) {
   return api<DataEnvelope<User>>(`users/${id}`)
 }
 
-/*export async function login(email: string, password: string) {
-  return api<DataEnvelope<User>>('users/login', { email, password })
-}*/
-
-export function login(email: string, password: string): User | undefined {
-  const user = data.users.find(u => u.email === email && u.password === password);
-  if (user) {
-    currentUser.value = user;
+export async function login(email: string, password: string) {
+  try {
+    const response = await api<DataEnvelope<{ user: User, token: string }>>('users/login', { email, password });
+    if (response.isSuccess) {
+      currentUser.value = response.data?.user || null;
+      return response.data?.user;
+    } else {
+      console.error(`Login failed} ${response.error}`);
+    }
+  } catch (error) {
+    console.error(`Login error: ${error}`);
   }
-  return user;
+  return undefined;
 }
 
 export function logout(): void {

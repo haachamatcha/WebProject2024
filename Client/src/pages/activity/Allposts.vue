@@ -1,24 +1,24 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import SideMenu from '@/components/SideMenu.vue'
-import PostCard from '@/components/PostCard.vue'
-import { getByUser, type Post } from '@/models/posts'
-import { ref } from 'vue'
-import { useAuth } from '@/models/auth'
-import WelcomeHero from '@/components/WelcomeHero.vue'
+import SideMenu from '@/components/SideMenu.vue';
+import PostCard from '@/components/PostCard.vue';
+import { getByUser, type Post } from '@/models/posts';
+import { ref } from 'vue';
+import WelcomeHero from '@/components/WelcomeHero.vue';
+import { refSession } from '@/models/session';
 
-const { loggedInUser } = useAuth()
-const userPosts = ref<Post[]>([])
+const session = refSession();
+const userPosts = ref<Post[]>([]);
 
-if (loggedInUser.value) {
-  getByUser(loggedInUser.value.userid).then((data) => {
-    userPosts.value = data.data
-  })
+if (session.user) {
+  getByUser(session.user.userid).then((data) => {
+    userPosts.value = data.data;
+  });
 }
 </script>
 
 <template>
-  <div class="columns" v-if="loggedInUser" >
+  <div class="columns" v-if="session.user">
     <SideMenu />
     <div class="column is-half">
       <PostCard v-for="post in userPosts" :key="post.userid" :post="post"/>

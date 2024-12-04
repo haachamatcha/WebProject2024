@@ -1,4 +1,4 @@
-const model = require('../models/users');
+const jwt = require('../models/jwt');
 const express = require('express');
 const app = express.Router();
 
@@ -9,7 +9,7 @@ async function parseToken(request, response, next) {
     return next();
   }
   try {
-    const payload = await model.verifyToken(token);
+    const payload = await jwt.verifyToken(token);
     if (payload) {
       request.user = payload;
     }

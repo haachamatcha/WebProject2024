@@ -1,26 +1,27 @@
 <script setup lang="ts">
-import { getAll, remove, type User } from '@/models/users'
-import { ref } from 'vue'
-import { useAuth } from '@/models/auth'
+import { getAll, remove, type User } from '@/models/users';
+import { ref } from 'vue';
+import { refSession } from '@/models/session';
 
-const { loggedInUser } = useAuth()
-const isLoggedIn = ref<boolean>(!!loggedInUser.value)
-const isAdmin = ref<boolean>(loggedInUser.value?.isadmin || false)
-const users = ref<User[]>([])
+const session = refSession();
+const isLoggedIn = ref<boolean>(!!session.user);
+const isAdmin = ref<boolean>(session.user?.isadmin || false);
+const users = ref<User[]>([]);
+
 getAll().then((data) => {
-  console.log(data)
-  users.value = data.data
-})
+  console.log(data);
+  users.value = data.data;
+});
 
 const handleRemove = async (userId: number) => {
   try {
-    await remove(userId) // Call the API to remove the user
+    await remove(userId); // Call the API to remove the user
     // Filter out the removed user from the users array
-    users.value = users.value.filter(user => user.userid !== userId)
+    users.value = users.value.filter(user => user.userid !== userId);
   } catch (error) {
-    console.error('Failed to remove user:', error)
+    console.error('Failed to remove user:', error);
   }
-}
+};
 </script>
 
 <template>

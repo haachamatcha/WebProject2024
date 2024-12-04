@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { type Post, create } from '../models/posts'
-import { useAuth } from '../models/auth'
+import { refSession } from '@/models/session'
 import dayjs from 'dayjs'
 
 const caption = ref<string>('')
@@ -13,6 +13,7 @@ const record = ref<number>(0)
 const unit = ref<string>('')
 
 const router = useRouter()
+const session = refSession()
 
 const submitPost = () => {
   if (!caption.value || postType.value === 'Post Type') {
@@ -20,15 +21,15 @@ const submitPost = () => {
     return
   }
 
-  if (!loggedInUser.value) {
+  if (!session.user) {
     alert('User is not logged in')
     return
   }
 
   const newPost: Post = {
-    firstName: loggedInUser.value.firstname,
-    lastName: loggedInUser.value.lastname,
-    username: loggedInUser.value.username,
+    firstName: session.user.firstname,
+    lastName: session.user.lastname,
+    username: session.user.username,
     postType: postType.value,
     record: record.value,
     unit: unit.value,
@@ -37,7 +38,7 @@ const submitPost = () => {
     calories: calories.value,
     photo: 'generic',
     postid: 0,
-    userid: loggedInUser.value.userid
+    userid: session.user.userid
   }
 
   create(newPost)
@@ -49,8 +50,6 @@ const cancelPost = () => {
   router.push('/')
   isModalActive.value = false
 }
-
-const { loggedInUser } = useAuth()
 </script>
 
 <template>

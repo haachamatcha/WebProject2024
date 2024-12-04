@@ -32,9 +32,6 @@ const registerUser = async () => {
     userid: (await getAll()).data.length + 1,
     isadmin: false,
     bio: '',
-    followers : 0,
-    following: 0,
-    posts: 0
   }
 
   try {
