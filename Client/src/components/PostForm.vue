@@ -146,8 +146,13 @@ const cancelPost = () => {
               </div>
             </div>
             <div class="field">
-              <div class="control">
-                <input type="hidden" class="input" v-model="unit" value="Pounds" />
+              <label class="label has-text-white">Unit</label>
+              <div class="select">
+                <select id="postUnit" v-model="unit">
+                  <option disabled value="">Select Unit</option>
+                  <option value="Kilograms">Kilograms</option>
+                  <option value="Pounds">Pounds</option>
+                </select>
               </div>
             </div>
           </div>

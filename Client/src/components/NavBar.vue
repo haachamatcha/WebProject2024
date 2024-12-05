@@ -72,7 +72,7 @@ const handleLogout = () => {
               <RouterLink v-if="!session.user" to="/login" class="navbar-item has-text-primary">Login</RouterLink>
               <RouterLink v-if="!session.user" to="/register" class="has-text-primary">Register</RouterLink>
               <button v-else class="button is-light" @click="handleLogout">Logout</button>
-            <RouterLink to="/admin" class="navbar-item has-text-primary">Admin</RouterLink>
+            <RouterLink v-if="session.user?.isadmin" to="/admin" class="navbar-item has-text-primary">Admin</RouterLink>
             <RouterLink to="/about" class="navbar-item has-text-primary">About</RouterLink>
           </div>
         </div>

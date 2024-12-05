@@ -1,12 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import StatList from '../components/StatsList.vue'
-import {useAuth} from '../models/auth'
+import { refSession } from '@/models/session';
 import {ref} from 'vue' 
 import {getAll, type Stats} from '../models/stats'
 import WelcomeHero from '@/components/WelcomeHero.vue'
-const {loggedInUser} = useAuth();
 const stats = ref<Stats[]>([]);
+
+const session = refSession();
 
 getAll().then((data) => {
     console.log(data);
@@ -15,8 +16,8 @@ getAll().then((data) => {
 </script>
 
 <template>
-    <div v-if="loggedInUser">
-        <StatList v-for="stat in stats" :key="stat.userid" :stats="stat" />
+    <div v-if="session.user">
+        <StatList />
     </div>
     <div v-else>
         <WelcomeHero />

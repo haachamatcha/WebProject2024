@@ -37,8 +37,8 @@ app.get("/", (req, rest, next) => {
         const { email, password } = req.body;
         const response = await model.login(email, password);
         if (response.isSuccess) {
-            req.session.user = response.data.user;
-            req.session.token = response.data.token;
+            req.user = response.data.user;
+            req.token = response.data.token;
             rest.send(response);
         } else {
             rest.status(401).send(response.message);

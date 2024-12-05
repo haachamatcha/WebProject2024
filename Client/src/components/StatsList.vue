@@ -1,6 +1,13 @@
 <script setup lang="ts">
-import type { Stats } from '../models/stats'
-defineProps<{ stats: Stats }>()
+import { getAll, type Stats } from '../models/stats'
+import { ref } from 'vue'
+
+const stats = ref<Stats[]>([]);
+
+getAll().then((data) => {
+  console.log(data);
+  stats.value = data.data;
+});
 </script>
 
 <template>

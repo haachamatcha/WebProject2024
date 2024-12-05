@@ -19,7 +19,7 @@ const handleLogin = async (e: Event) => {
       errorMessage.value = 'Invalid email or password.';
     }
   } catch (error) {
-    errorMessage.value = 'An error occurred during login.';
+    errorMessage.value = 'An error occurred during login: Invalid email or password.';
     console.error('Login failed:', error);
   }
 };

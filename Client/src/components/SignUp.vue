@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import {type User, add, getAll} from '@/models/users'
+import { RouterLink, useRouter } from 'vue-router'
 
 const first = ref<string>('')
 const last = ref<string>('')
@@ -8,6 +9,7 @@ const username = ref<string>('')
 const email = ref<string>('')
 const password = ref<string>('')
 const confirmPassword = ref<string>('')
+const router = useRouter()
 
 const registerUser = async () => {
   if (password.value !== confirmPassword.value || password.value === '') {
@@ -36,7 +38,7 @@ const registerUser = async () => {
 
   try {
     await add(newUser)
-    alert('User registered successfully')
+    router.push({ name: '/login' });
   } catch (error) {
     console.error('Failed to register user:', error)
   }

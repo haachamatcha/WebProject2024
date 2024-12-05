@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import PostForm from './PostForm.vue'
-import { useAuth } from '../models/auth'
-import { ref } from 'vue'
-const { loggedInUser } = useAuth()
 
-const isLoggedIn = ref<boolean>(!!loggedInUser.value)
 </script>
 
 <template>
@@ -18,7 +14,7 @@ const isLoggedIn = ref<boolean>(!!loggedInUser.value)
       <p class="menu-label has-text-primary">Activity</p>
       <ul class="menu-list">
         <li><RouterLink to="/activity/allposts">All Posts</RouterLink></li>
-        <li v-if="isLoggedIn"><PostForm /></li>
+        <li><PostForm /></li>
       </ul>
     </aside>
   </div>

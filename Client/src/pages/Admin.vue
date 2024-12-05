@@ -1,16 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import UserList from '@/components/UserList.vue'
-import { useAuth } from '@/models/auth'
-import { ref } from 'vue'
+import { refSession } from '@/models/session'
+//import { ref } from 'vue'
 
-const { loggedInUser } = useAuth()
-
-const isLoggedIn = ref<boolean>(!!loggedInUser.value)
+const session = refSession()
 </script>
 
 <template>
-  <div class="container has-gap content" v-if="isLoggedIn">
+  <div class="container has-gap content" v-if="session.user?.isadmin">
     <UserList />
   </div>
   <div class="container has-gap content" v-else>
