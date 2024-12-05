@@ -3,6 +3,7 @@ const express = require('express');
 const app = express.Router();
 
 app.get("/", (req, rest, next) => {
+    const userid = req.user.id; // assuming req.user contains the logged-in user's info
     model
     .getAll()
     .then((x) => rest.send(x))

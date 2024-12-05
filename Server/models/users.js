@@ -2,6 +2,7 @@ const data = require("../data/users.json");
 const { getConnection } = require("./supabase");
 const conn = getConnection();
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 async function getAll() {
   const { data, error, count } = await conn
@@ -34,7 +35,6 @@ async function login(email, password) {
     .from("users")
     .select("*")
     .eq("email", email)
-    .eq("password", password)
     .single();
   
   if (error) {
@@ -42,6 +42,17 @@ async function login(email, password) {
     return {
       isSuccess: false,
       message: error.message,
+      data: null,
+      token: null
+    };
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, data.password);
+  if (!isPasswordValid) {
+    console.error(`Login error: Invalid password`);
+    return {
+      isSuccess: false,
+      message: "Invalid password",
       data: null,
       token: null
     };
@@ -57,6 +68,7 @@ async function login(email, password) {
 }
 
 async function add(user) {
+  const hashedPassword = await bcrypt.hash(user.password, 10);
   const { data, error } = await conn
     .from("users")
     .insert([
@@ -65,7 +77,7 @@ async function add(user) {
         lastname: user.lastname,
         email: user.email,
         username: user.username,
-        password: user.password,
+        password: hashedPassword,
         isadmin: user.isadmin,
         bio: user.bio,
       },
@@ -79,6 +91,7 @@ async function add(user) {
 }
 
 async function update(id, user) {
+  const hashedPassword = await bcrypt.hash(user.password, 10);
   const { data, error } = await conn
     .from("users")
     .update({
@@ -86,7 +99,7 @@ async function update(id, user) {
         lastName: user.lastName,
         email: user.email,
         username: user.username,
-        password: user.password,
+        password: hashedPassword,
         isadmin: user.isadmin,
         bio: user.bio,
     })

@@ -7,8 +7,9 @@ export async function getAll() {
   return api<DataListEnvelope<Stats>>('stats')
 }
 
-export async function get(id: number) {
-  return api<DataEnvelope<Stats>>(`stats/${id}`)
+export async function get(userid: number) {
+  const response = await api<DataEnvelope<Stats>>(`stats/${userid}`);
+  return response.data;
 }
 
 export async function add(stats: Stats) {

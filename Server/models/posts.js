@@ -5,7 +5,8 @@ const conn = getConnection();
 async function getAll() {
   const { data, error, count } = await conn
     .from("posts")
-    .select("*", { count: "estimated" });
+    .select("*", { count: "estimated" })
+    .order("date", { ascending: false }); // Sort by date descending
   return {
     isSuccess: !error,
     message: error?.message,
@@ -31,7 +32,8 @@ async function getByUser(userid) {
   const { data, error, count } = await conn
     .from("posts")
     .select("*")
-    .eq("userid", userid);
+    .eq("userid", userid)
+    .order("date", { ascending: false }); // Sort by date descending
   return {
     isSuccess: !error,
     message: error?.message,
