@@ -36,7 +36,6 @@ const submitPost = () => {
     date: dayjs().format('DD MMMM YYYY'),
     caption: caption.value,
     calories: calories.value,
-    photo: 'generic',
     postid: 0,
     userid: session.user.userid
   }
@@ -46,10 +45,6 @@ const submitPost = () => {
   isModalActive.value = false
 }
 
-const cancelPost = () => {
-  router.push('/')
-  isModalActive.value = false
-}
 </script>
 
 <template>
@@ -150,7 +145,6 @@ const cancelPost = () => {
               <div class="select">
                 <select id="postUnit" v-model="unit">
                   <option disabled value="">Select Unit</option>
-                  <option value="Kilograms">Kilograms</option>
                   <option value="Pounds">Pounds</option>
                 </select>
               </div>
@@ -164,7 +158,7 @@ const cancelPost = () => {
           <div class="is-grouped">
             <button class="button is-primary" @click="submitPost">Post</button>
             &ensp;
-            <button class="button is-danger" @click="cancelPost">Cancel</button>
+            <button class="button is-danger" @click="isModalActive=false">Cancel</button>
           </div>
         </div>
       </div>

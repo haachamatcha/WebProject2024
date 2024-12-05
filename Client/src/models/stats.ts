@@ -8,8 +8,7 @@ export async function getAll() {
 }
 
 export async function get(userid: number) {
-  const response = await api<DataEnvelope<Stats>>(`stats/${userid}`);
-  return response.data;
+  return api<DataEnvelope<Stats>>(`stats/${userid}`);
 }
 
 export async function add(stats: Stats) {
@@ -20,8 +19,8 @@ export async function update(stats: Stats) {
   return api<DataEnvelope<Stats>>(`stats/${stats.userid}`, stats, 'PATCH')
 }
 
-export async function remove(id: number) {
-  return api<DataEnvelope<Stats>>(`stats/${id}`, undefined, 'DELETE')
+export async function remove(userid: number) {
+  return api<DataEnvelope<Stats>>(`stats/${userid}`, undefined, 'DELETE')
 }
 
 export interface Stats {

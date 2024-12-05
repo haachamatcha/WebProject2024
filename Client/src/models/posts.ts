@@ -39,7 +39,6 @@ export interface Post {
   unit: string
   date: string
   caption: string
-  photo: string
 }
 
 const postList = ref<Post[]>(data.posts)

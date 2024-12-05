@@ -1,19 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import StatList from '../components/StatsList.vue'
+import EditProfile from '@/components/EditProfile.vue';
 import { refSession } from '@/models/session';
-import WelcomeHero from '@/components/WelcomeHero.vue'
-
 const session = refSession();
 
 </script>
 
 <template>
     <div v-if="session.user">
-        <StatList :userid="session.user.userid" />
-    </div>
-    <div v-else>
-        <WelcomeHero />
+        <EditProfile />
     </div>
 </template>
 

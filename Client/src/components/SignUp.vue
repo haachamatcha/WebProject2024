@@ -38,7 +38,7 @@ const registerUser = async () => {
 
   try {
     await add(newUser)
-    router.push({ name: '/login' });
+    router.push('/login');
   } catch (error) {
     console.error('Failed to register user:', error)
   }

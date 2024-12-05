@@ -30,7 +30,7 @@ const isLoggedIn = ref<boolean>(!!session.user);
       </div>
       <div class="media-content">
         <p class="has-text-centered">
-          <RouterLink to="/activity/profile" class="button is-primary">Edit Profile</RouterLink>
+          <RouterLink to="/activity/edit" class="button is-primary">Edit Profile</RouterLink>
         </p>
       </div>
     </div>

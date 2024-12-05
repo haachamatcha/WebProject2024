@@ -59,7 +59,7 @@ async function login(email, password) {
   }
 
   const token = await createToken(data, 3600000);
-  console.log(`Login successful for email: ${email}, token: ${token}`);
+  //console.log(`Login successful for email: ${email}, token: ${token}`);
   return {
     isSuccess: true,
     message: "Login successful",
@@ -91,17 +91,14 @@ async function add(user) {
 }
 
 async function update(id, user) {
-  const hashedPassword = await bcrypt.hash(user.password, 10);
   const { data, error } = await conn
     .from("users")
     .update({
-      firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        username: user.username,
-        password: hashedPassword,
-        isadmin: user.isadmin,
-        bio: user.bio,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+      username: user.username,
+      bio: user.bio,
     })
     .eq("userid", id)
     .select("*")

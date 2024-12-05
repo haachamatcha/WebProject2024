@@ -35,7 +35,13 @@ export async function add(user: User) {
 }
 
 export async function update(user: User) {
-  return api<DataEnvelope<User>>(`users/${user.userid}`, user, 'PATCH')
+  return api<DataEnvelope<User>>(`users/${user.userid}`, {
+    firstname: user.firstname,
+    lastname: user.lastname,
+    username: user.username,
+    email: user.email,
+    bio: user.bio,
+  }, 'PATCH')
 }
 
 export async function remove(id: number) {

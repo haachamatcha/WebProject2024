@@ -13,11 +13,11 @@ async function getAll() {
   };
 }
 
-async function get(id) {
+async function get(userid) {
   const { data, error } = await conn
     .from("stats")
     .select("*")
-    .eq("id", id)
+    .eq("userid", userid)
     .single();
   return {
     isSuccess: !error,
