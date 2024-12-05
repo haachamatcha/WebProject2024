@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import {type User, add, getAll} from '@/models/users'
 import { RouterLink, useRouter } from 'vue-router'
+import { type Stats, addStats } from '../models/stats'
 
 const first = ref<string>('')
 const last = ref<string>('')
@@ -36,8 +37,21 @@ const registerUser = async () => {
     bio: '',
   }
 
+  const newStats: Stats = {
+    userid: newUser.userid,
+    today_lift: 0,
+    today_time: 0,
+    today_dist: 0,
+    today_cal: 0,
+    max_lift: 0,
+    max_time: 0,
+    max_dist: 0,
+    max_cal: 0
+  }
+
   try {
     await add(newUser)
+    await addStats(newStats)
     router.push('/login');
   } catch (error) {
     console.error('Failed to register user:', error)

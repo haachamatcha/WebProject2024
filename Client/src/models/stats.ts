@@ -11,7 +11,7 @@ export async function get(userid: number) {
   return api<DataEnvelope<Stats>>(`stats/${userid}`);
 }
 
-export async function add(stats: Stats) {
+export async function addStats(stats: Stats) {
   return api<DataEnvelope<Stats>>('stats', stats)
 }
 
