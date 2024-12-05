@@ -14,6 +14,7 @@ import PostForm from './PostForm.vue'
       <p class="menu-label has-text-primary">Activity</p>
       <ul class="menu-list">
         <li><RouterLink to="/activity/allposts">All Posts</RouterLink></li>
+        <li><RouterLink to="/activity/workouts">Exercise List</RouterLink></li>
         <li><PostForm /></li>
       </ul>
     </aside>

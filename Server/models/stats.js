@@ -9,7 +9,7 @@ async function getAll() {
     isSuccess: !error,
     message: error?.message,
     data: data,
-    total: count,
+    max: count,
   };
 }
 
@@ -58,11 +58,11 @@ async function update(id, stat) {
       today_lift: stat.today_lift,
       today_time: stat.today_time,
       today_dist: stat.today_dist,
-      total_lift: stat.total_lift,
-      total_time: stat.total_time,
-      total_dist: stat.total_dist,
+      max_lift: stat.max_lift,
+      max_time: stat.max_time,
+      max_dist: stat.max_dist,
       today_cal: stat.today_cal,
-      total_cal: stat.total_cal
+      max_cal: stat.max_cal
     })
     .eq("userid", id)
     .select("*")
