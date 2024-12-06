@@ -14,12 +14,19 @@ if (session.user) {
     userWorkouts.value = data.data;
   });
 }
+
+const removeWorkout = (workoutId: number) => {
+  userWorkouts.value = userWorkouts.value.filter(workout => workout.workoutid !== workoutId);
+};
+
 </script>
 
 <template>
   <div class="columns" v-if="session.user">
     <SideMenu />
-    <ExcerciseCard v-for="workout in userWorkouts" :key="workout.workoutid" :workout="workout" />
+    <div class="column is-half">
+    <ExcerciseCard v-for="workout in userWorkouts" :key="workout.workoutid" :workout="workout" @workout-deleted="removeWorkout"/>
+  </div>
   </div>
 </template>
 

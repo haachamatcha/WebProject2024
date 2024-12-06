@@ -18,16 +18,19 @@ const updateUser = async () => {
 
     const updatedUser = {
         ...user,
+        userid: user?.userid || 0,
         firstname: first.value,
         lastname: last.value,
         username: username.value,
         email: email.value,
         bio: bio.value,
+        password: user?.password || '',
+        isadmin: user?.isadmin ?? false,
     };
 
     try {
         await update(updatedUser);
-        router.push('/activity/profile');
+        router.push('/');
     } catch (error) {
         console.error('Failed to update user:', error);
         alert('Failed to update user');

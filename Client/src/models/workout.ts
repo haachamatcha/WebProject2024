@@ -27,7 +27,7 @@ export function remove(workoutid: number) {
 
 export interface Workout {
   workoutid: number
-  userid: number
+  userid: number | undefined
   exercise_name: string
   type: string
   date: string

@@ -8,7 +8,8 @@ import dayjs from 'dayjs'
 const session = refSession()
 const router = useRouter()
 
-const userid = session.user.userid
+const user = session.user
+const userid = user?.userid
 const exercise_name = ref<string>('')
 const type = ref<string>('')
 const record = ref<number>(0)
