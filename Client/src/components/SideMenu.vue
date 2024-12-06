@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ExerciseForm from './ExerciseForm.vue';
 import PostForm from './PostForm.vue'
 
 </script>
@@ -15,6 +16,7 @@ import PostForm from './PostForm.vue'
       <ul class="menu-list">
         <li><RouterLink to="/activity/allposts">All Posts</RouterLink></li>
         <li><RouterLink to="/activity/workouts">Exercise List</RouterLink></li>
+        <li><ExerciseForm/></li>
         <li><PostForm /></li>
       </ul>
     </aside>

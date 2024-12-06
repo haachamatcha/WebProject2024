@@ -44,19 +44,4 @@ export interface Post {
 const postList = ref<Post[]>(data.posts)
 export const userPost = () => postList
 
-export function addPost(post: Post) {
-  post.postid = data.posts.length + 1
-  postList.value.push(post)
-}
-
-export interface Comment {
-  username: string;
-  comment: string;
-  date: string;
-}
-
-export function deletePost(postid: number) {
-  const index = postList.value.findIndex(p => p.postid === postid)
-  postList.value.splice(index, 1)
-}
 

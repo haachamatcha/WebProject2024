@@ -1,28 +1,23 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { type Workout, remove } from '../models/workout';
 
+defineProps<{ workout: Workout }>();
 </script>
 
 <template>
-  <div class="media box content has-gap has-background-dark">
-    <div class="media-content">
-      <p class="has-text-primary bold">
-        {{ post.firstName }} {{ post.lastName }}
-        <small>@{{ post.username }} &nbsp; {{ post.date }}</small>
-      </p>
-      <p class="has-text-white bold">{{ post.caption }}</p>
-      <div class="columns">
-        <div class="column is-one-third">
-          <h3 class="is-3">{{ post.postType }}</h3>
-          <p class="has-text-primary">Type</p>
-        </div>
-        <div class="column is-one-third">
-          <h3 class="is-3">{{ post.record }} {{ post.unit }}</h3>
-          <p class="has-text-primary">{{ post.unit }}</p>
-        </div>
-        <div class="column is-one-third">
-          <h3 class="is-3">{{ post.calories }} Cal</h3>
-          <p class="has-text-primary">Calories Burned</p>
-        </div>
+  <div class="adjusted">
+    <div class="media box content has-gap has-background-dark has-gap">
+      <div class="media-content">
+        <h1 class="has-text-primary bold">
+          {{ workout.exercise_name }}
+        </h1>
+        <h3 class="has-text-white"> Type: <br> {{ workout.type }}</h3>
+
+        <h3 class="has-text-white" v-if="workout.type == 'Strength'">Details: <br> {{ workout.record }} {{ workout.unit }} x {{
+          workout.count }} set(s)</h3>
+        <h3 class="has-text-white" v-else> Details: <br> {{ workout.record }} {{ workout.unit }} for {{ workout.count }} Lap(s)</h3>
+        <h3 class="has-text-white"> Completed: <br>{{ workout.date }}</h3>
       </div>
     </div>
   </div>

@@ -46,15 +46,35 @@ async function add(workout) {
     .insert([
       {
         userid: workout.userid,
-        workoutType: workout.workoutType,
-        calories: workout.calories,
+        exercise_name: workout.exercise_name,
+        type: workout.type,
+        date: workout.date,
         record: workout.record,
         unit: workout.unit,
-        date: workout.date,
-        caption: workout.caption,
+        count: workout.count
       },
     ])
     .select("*")
+    .single();
+  return {
+    isSuccess: !error,
+    message: error?.message,
+    data: data,
+  };
+}
+
+async function update(workout) {
+  const { data, error } = await conn
+    .from("workout")
+    .update({
+      exercise_name: workout.exercise_name,
+      type: workout.type,
+      date: workout.date,
+      record: workout.record,
+      unit: workout.unit,
+      count: workout.count
+    })
+    .eq("workoutid", workout.workoutid)
     .single();
   return {
     isSuccess: !error,
@@ -81,5 +101,6 @@ module.exports = {
   get,
   getByUser,
   add,
+  update,
   remove,
 };

@@ -3,6 +3,7 @@ const app = express();
 const userController = require("./controllers/users");
 const postController = require("./controllers/posts");
 const statController = require("./controllers/stats");
+const workoutController = require("./controllers/workout");
 const { parseToken, requireAdmin } = require("./middleware/auth");
 
 const PORT = 3000;
@@ -26,6 +27,7 @@ app.get("/", (req, res, next) => {
     .use("/api/v1/users", userController)
     .use("/api/v1/posts", postController)
     .use("/api/v1/stats", statController)
+    .use("/api/v1/workout", workoutController) // Fix the route here
 
     .get("*", (req, res, next) => {
         res.sendFile(__dirname + "/dist/index.html");
