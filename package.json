@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node dist/server/index.js",
     "dev": "node server/index.js --watch server"
   },
   "dependencies": {
