@@ -21,7 +21,7 @@ app.use(express.static(__dirname + "/dist"));
 
 // Controllers
 app.get("/", (req, res, next) => {
-    res.send("Hello World");
+    res.send("Hello World")
 })
     .use(parseToken)
     .use("/api/v1/users", userController)
