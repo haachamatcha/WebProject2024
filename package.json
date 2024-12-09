@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "node index.js",
-    "dev": "node server/index.js --watch server"
+    "start": "node Server/index.js",
+    "dev": "node Server/index.js --watch server"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",
