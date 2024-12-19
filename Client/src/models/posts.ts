@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import data from '../data/posts.json'
+//import data from '../data/posts.json'
 import type { DataEnvelope, DataListEnvelope } from './dataEnvelope'
 import { api } from './myFetch'
 
@@ -39,9 +39,8 @@ export interface Post {
   unit: string
   date: string
   caption: string
+  taggedUser: string
 }
 
-const postList = ref<Post[]>(data.posts)
-export const userPost = () => postList
 
 

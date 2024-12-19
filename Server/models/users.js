@@ -29,6 +29,18 @@ async function get(id) {
   };
 }
 
+async function search(query){
+  const {data, error} = await conn
+    .from("users")
+    .select("*")
+    .like("username", `%${query}%`)
+    return {
+      isSuccess: !error,
+      message: error?.message,
+      data: data
+    };
+}
+
 async function login(email, password) {
   console.log(`Attempting login for email: ${email}`);
   const { data, error } = await conn
@@ -152,6 +164,7 @@ module.exports = {
   getAll,
   get,
   add,
+  search, // added search function to exports
   update,
   remove,
   login,

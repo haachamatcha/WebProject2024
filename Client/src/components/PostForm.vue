@@ -4,7 +4,9 @@ import { useRouter } from 'vue-router'
 import { type Post, create } from '../models/posts'
 import { refSession } from '@/models/session'
 import dayjs from 'dayjs'
-
+import { search } from '@/models/users'
+import { type User } from '@/models/users'
+import { type OptionsProp } from '@oruga-ui/oruga-next'
 const caption = ref<string>('')
 const postType = ref<string>('')
 const isModalActive = ref<boolean>(false)
@@ -37,7 +39,8 @@ const submitPost = () => {
     caption: caption.value,
     calories: calories.value,
     postid: 0,
-    userid: session.user.userid
+    userid: session.user.userid,
+    taggedUser: selected.value?.username || ''
   }
 
   create(newPost)
@@ -45,6 +48,16 @@ const submitPost = () => {
   isModalActive.value = false
 }
 
+const options = ref<OptionsProp>([])
+const selected = ref<User>()
+
+async function getAsyncData(query: string) {
+  const data = await search(query)
+  options.value = data.data.map((user: User) => ({
+    value: user,
+    label: `${user.firstname} ${user.lastname} (${user.username})`
+  }))
+}
 </script>
 
 <template>
@@ -70,6 +83,28 @@ const submitPost = () => {
                 placeholder="Enter a caption"
               />
             </div>
+          </div>
+
+          <div class="field">
+            <label class="label has-text-white">Tag Users</label>
+            <o-field label="Tag a User">
+              <o-autocomplete
+                v-model="selected"
+                :options="options"
+                rounded
+                expanded
+                :debounce="500"
+                @input="getAsyncData"
+                placeholder="e.g. JohnDoe"
+                icon="search"
+                clearable
+                open-on-focus
+              >
+                <template #empty>No results found</template>
+              </o-autocomplete>
+            </o-field>
+
+            <p><b>Selected:</b> {{ selected?.username }}</p>
           </div>
 
           <div class="field">
@@ -158,7 +193,7 @@ const submitPost = () => {
           <div class="is-grouped">
             <button class="button is-primary" @click="submitPost">Post</button>
             &ensp;
-            <button class="button is-danger" @click="isModalActive=false">Cancel</button>
+            <button class="button is-danger" @click="isModalActive = false">Cancel</button>
           </div>
         </div>
       </div>

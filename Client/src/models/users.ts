@@ -11,6 +11,10 @@ export async function get(id: number) {
   return api<DataEnvelope<User>>(`users/${id}`)
 }
 
+export async function search(query: string) {
+  return api<DataListEnvelope<User>>(`users/search?q=${query}`)
+}
+
 export async function login(email: string, password: string) {
   try {
     const response = await api<DataEnvelope<{ user: User, token: string }>>('users/login', { email, password });

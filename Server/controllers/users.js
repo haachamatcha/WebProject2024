@@ -9,6 +9,15 @@ app.get("/", (req, rest, next) => {
     .catch(next);
 })
 
+.get("/search", (req, rest, next) => {
+    const query = req.query.q;
+    model
+    .search(query)
+    .then((x) => rest.send(x))
+    .catch(next);
+})
+
+
 .get("/:id", (req, rest, next) => {
     const id = req.params.id;
     model

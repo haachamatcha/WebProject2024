@@ -58,12 +58,6 @@ const handleLogout = () => {
           </span>
           Progress
         </RouterLink>
-        <RouterLink to="/search" class="navbar-item">
-          <span class="icon">
-            <i class="fas fa-search"></i>
-          </span>
-          Search
-        </RouterLink>
       </div>
 
       <div class="navbar-end">

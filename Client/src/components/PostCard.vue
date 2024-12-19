@@ -18,6 +18,7 @@ defineProps<{ post: Post }>()
         <small>@{{ post.username }} &nbsp; {{ post.date }}</small>
       </p>
       <p class="has-text-white bold">{{ post.caption }}</p>
+      <p class="has-text-primary bold">Tagged: {{ post.taggedUser }}</p>
       <div class="columns">
         <div class="column is-one-third">
           <h3 class="is-3">{{ post.postType }}</h3>

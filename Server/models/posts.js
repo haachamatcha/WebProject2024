@@ -56,7 +56,8 @@ async function add(post) {
         record: post.record,
         unit: post.unit,
         date: post.date,
-        caption: post.caption
+        caption: post.caption,
+        taggedUser: post.taggedUser
       },
     ])
     .select("*")
